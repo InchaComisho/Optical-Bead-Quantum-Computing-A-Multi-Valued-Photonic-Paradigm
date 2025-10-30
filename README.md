@@ -1,0 +1,2 @@
+# Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm
+We propose Optical Bead Quantum Computing (OBQC), a novel computational paradigm that exploits multiple degrees of freedom of light to achieve multi-valued information processing in a single photon. Inspired by the visual pattern recognition employed in abacus calculation, OBQC treats discrete photonic states as “beads” that encode 100-10,000 
