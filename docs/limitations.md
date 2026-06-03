@@ -147,6 +147,52 @@ This gap is not a failure of the framework — it is the key experimental quanti
 
 ---
 
+## 7. Optical Medium Limitations
+
+The choice of optical channel medium introduces additional limitations beyond those of open-air free-space paths. See also [docs/optical-medium-stabilization.md](optical-medium-stabilization.md).
+
+### 7.1 Liquid Media
+
+| Limitation | Impact |
+|---|---|
+| Absorption loss | Wavelength-dependent signal attenuation; differential gain across channels |
+| Bubble scattering | Random amplitude drops; requires degassing and sealed container |
+| Thermal refractive index drift | dn/dT ~ -1e-4 /K for water; at 5 cm path length, 0.1 K causes ~5 rad phase shift |
+| Long-term contamination | Leaching from container materials; microbial growth in water |
+| Liquid convection | Thermal gradients drive slow refractive-index fluctuations |
+
+**Critical limitation for phase encoding:** At centimeter-scale path lengths, liquid media require sub-millikelvin temperature control for phase stability. Phase DOF should be deferred to shorter-path or solid-medium implementations.
+
+### 7.2 Solid Polymer Media (Acrylic / Optical Resin)
+
+| Limitation | Impact |
+|---|---|
+| Stress birefringence | Curing and machining stress rotates polarization state; degrades polarization DOF |
+| Trapped bubbles | Cast polymer may contain microscopic voids from the curing process |
+| Curing shrinkage | Volume contraction during polymerization creates internal stress |
+| Thermal expansion | PMMA CTE ~70 ppm/K (vs glass ~3 ppm/K); significant path length change with temperature |
+| Long-term yellowing | UV absorption increases over time in some acrylic grades |
+
+**Key implication:** Acrylic / PMMA blocks are suitable for wavelength, intensity, and spatial position encoding, but are not recommended for polarization or phase DOFs without characterization of birefringence and CTE effects.
+
+### 7.3 Optical Glass, Quartz, and Fiber
+
+These materials have much lower stress birefringence, lower CTE, and better optical homogeneity than polymer alternatives. However:
+- Glass and quartz blocks require precision machining or molding; fabrication cost is higher
+- Fiber coupling requires precision micro-optic alignment; coupling loss is a practical concern
+- Fiber birefringence in standard SMF accumulates with temperature and bending; use polarization-maintaining fiber (PMF) for stable polarization encoding
+
+### 7.4 Quantum Optical Extensions
+
+For Phase 3 quantum optical extensions, the requirements on all media are substantially stricter:
+- Single-photon loss budget is extremely tight; even 1 dB loss reduces quantum state fidelity significantly
+- Rayleigh scattering from bubbles, inclusions, or material inhomogeneity destroys single-photon state purity
+- Phase coherence must be maintained over the full path length; any stochastic phase fluctuation degrades quantum interference
+- Liquid cells and polymer blocks are not suitable for single-photon quantum optical experiments without significant engineering
+- Fiber (low-loss SMF or PMF) or integrated photonic circuits are the appropriate medium for quantum OBQC extensions
+
+---
+
 ## 8. Current Status Limitation
 
 As of 2026-06-03:

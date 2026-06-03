@@ -21,6 +21,7 @@ The roadmap is organized around verifiable milestones, not speculative timelines
 | v0.3 | Extended noise model: drift, crosstalk, jitter | 🔲 Planned |
 | v0.4 | Visualization: confusion matrix, state space diagram, SER vs N plot | 🔲 Planned |
 | v0.5 | Phase 1 hardware specification document | 🔲 Planned |
+| v0.6 | Optical medium stabilization: compare air, liquid, solid, fiber paths | 🔲 Planned |
 | v1.0 | Reproducible optical bead experiment with measured SER data | 🔲 Long-term |
 
 ---
@@ -131,6 +132,35 @@ All experimental procedures, hardware configuration, and measurement data must b
 - Cryogenic infrastructure if required by detector choice
 
 **Note:** This phase is a long-term research direction. It is **not required** for the near-term deterministic prototype to be useful or scientifically valid. The deterministic prototype stands alone as a research contribution.
+
+---
+
+## v0.6 Optical Medium Stabilization
+
+**Purpose:** Extend the simulation and documentation framework to cover optical channel medium options, and design the first reproducible medium-comparison experiment.
+
+**Entry criteria:** v0.5 Phase 1 hardware specification complete.
+
+**Deliverables:**
+- `docs/optical-medium-stabilization.md`: survey of all medium options with trade-offs
+- `docs/sealed-liquid-optical-bead-medium.md`: detailed liquid cell design
+- `diagrams/optical-medium-options.md`: Mermaid diagrams for all medium configurations
+- `simulator/optical_medium_comparison.py`: simplified medium noise model comparison
+- `simulator/liquid_medium_noise.py`: liquid-cell-specific noise model
+- Experimental protocol for measuring SER vs medium type
+- Falsifiable prediction: SER ranking by medium (open_air > sealed_air > liquid/acrylic > glass > fiber) to be validated by measurement
+
+**Success metrics:**
+- Simulator runs for all six media without error
+- Documentation clearly states trade-offs without overclaiming
+- Protocol specifies at least one reproducible medium-comparison experiment
+
+**Key findings from simulation (model-level, requires experimental confirmation):**
+- Phase encoding through centimeter-scale liquid cells requires sub-millikelvin temperature control — not practical for Phase 1 prototypes
+- Acrylic / PMMA blocks have significant stress birefringence that degrades polarization DOF
+- Glass / quartz and fiber achieve the lowest simulated SER at any M value
+- For Phase 1: use sealed air or liquid cell with wavelength + polarization only
+- For Phase 2+: use glass, quartz, or fiber when polarization or phase encoding is required
 
 ---
 

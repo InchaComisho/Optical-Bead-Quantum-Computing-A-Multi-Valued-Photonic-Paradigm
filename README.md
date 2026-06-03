@@ -21,15 +21,18 @@
 7. [Technical Architecture](#technical-architecture)
 8. [Error Model and State Separability](#error-model-and-state-separability)
 9. [Minimal Prototype Roadmap](#minimal-prototype-roadmap)
-10. [Possible Applications](#possible-applications)
-11. [Electronic Extension: Soroban-Coded Decimal Logic](#electronic-extension-soroban-coded-decimal-logic)
-12. [What OBQC Is Not](#what-obqc-is-not)
-13. [Falsifiable Claims](#falsifiable-claims)
-14. [Limitations](#limitations)
-15. [Roadmap](#roadmap)
-16. [Repository Structure](#repository-structure)
-17. [Author](#author)
-18. [Keywords](#keywords)
+10. [Optical Medium Stabilization](#optical-medium-stabilization)
+11. [Possible Applications](#possible-applications)
+12. [Sealed Liquid Optical Bead Medium](#sealed-liquid-optical-bead-medium)
+13. [Electronic Extension: Soroban-Coded Decimal Logic](#electronic-extension-soroban-coded-decimal-logic)
+14. [Comparative Simulations](#comparative-simulations-binary-bcd-scd-and-optical-beads)
+15. [What OBQC Is Not](#what-obqc-is-not)
+14. [Falsifiable Claims](#falsifiable-claims)
+15. [Limitations](#limitations)
+16. [Roadmap](#roadmap)
+17. [Repository Structure](#repository-structure)
+18. [Author](#author)
+19. [Keywords](#keywords)
 
 ---
 
@@ -296,6 +299,30 @@ See also: [docs/roadmap.md](docs/roadmap.md)
 
 ---
 
+## Optical Medium Stabilization
+
+See also: [docs/optical-medium-stabilization.md](docs/optical-medium-stabilization.md) | [diagrams/optical-medium-options.md](diagrams/optical-medium-options.md) | [simulator/optical_medium_comparison.py](simulator/optical_medium_comparison.py)
+
+OBQC does not require an open-air optical path. For near-term prototypes, the optical bead channel can be stabilized by enclosing or replacing the open-air gap with a more controlled medium.
+
+| Medium | Near-term feasibility | Main benefit | Main risk |
+|---|---|---|---|
+| Open air | Very easy | Simplest first test | Dust, humidity, turbulence |
+| Sealed air / nitrogen | Easy | Dust and humidity elimination | Temperature and pressure drift |
+| Sealed liquid (water, silicone oil) | Moderate | Enclosed and index-stabilized path | Bubbles, thermal RI drift, phase instability |
+| Acrylic / PMMA block | Easy to moderate | Solid, compact, no convection | Stress birefringence (avoid for polarization DOF) |
+| Optical glass / quartz | Moderate | Low stress, best optical quality | Machining cost |
+| Fiber / waveguide | Advanced | Guided, stable, scalable | Coupling complexity |
+
+Key considerations:
+- **Ultra-pure water** is a sealed liquid medium requiring degassing, sealing, and temperature control — not a solid material.
+- **Acrylic / PMMA** is suitable for wavelength, intensity, and spatial encoding but has significant stress birefringence that degrades polarization DOF.
+- **Glass and quartz** are recommended when polarization or phase encoding is needed.
+- **Fiber and waveguides** are the long-term path toward scalable implementation.
+- **Quantum optical extensions** require stricter loss, scattering, and phase-coherence control than classical OBQC prototypes — liquid and polymer media are not automatically suitable.
+
+---
+
 ## Possible Applications
 
 The following applications are proposed as research directions. None are claimed to be currently implemented or demonstrated.
@@ -313,6 +340,51 @@ The following applications are proposed as research directions. None are claimed
 | Qudit research platform | Testbed for high-dimensional quantum state encoding protocols | Quantum extension |
 
 **These applications require hardware implementation and experimental validation before any performance claims can be made.**
+
+---
+
+## Sealed Liquid Optical Bead Medium
+
+See also: [docs/sealed-liquid-optical-bead-medium.md](docs/sealed-liquid-optical-bead-medium.md) | Simulator: [simulator/liquid_medium_noise.py](simulator/liquid_medium_noise.py)
+
+For near-term classical Optical Bead Computing prototypes, the optical channel does not need to be open air. A **sealed transparent liquid medium** — an immersion-stabilized optical cell — may improve environmental stability by eliminating dust contamination, air turbulence, and humidity variation.
+
+In this model, optical bead states are transmitted through a closed transparent liquid cell (e.g., a spectroscopy cuvette filled with distilled water, glycerol solution, or optical-grade oil). The liquid provides a mechanically stable, sealed propagation medium.
+
+### Potential advantages
+
+- Dust and airborne particle contamination: eliminated by sealing
+- Air turbulence (heat shimmer): eliminated; replaced by slow liquid convection
+- Humidity variation: eliminated inside the sealed cell
+- Refractive index matching to window glass: reduces reflection losses at cell boundaries
+
+### Known limitations
+
+| Limitation | Physical mechanism | Severity |
+|---|---|---|
+| Absorption loss | Beer-Lambert attenuation: I = I₀ exp(−αL) | Low (< 1 dB for 5 cm water at visible wavelengths) |
+| Scattering from bubbles / impurities | Random amplitude drops | Low-moderate (eliminated by degassing and filtration) |
+| Temperature-dependent refractive index drift | dn/dT ≈ −1×10⁻⁴ K⁻¹ for water | **Critical for phase encoding** |
+| Wavelength-dependent transmission | Different α per wavelength channel | Moderate; requires per-channel calibration |
+| Long-term material degradation | Oxidation, microbial growth, outgassing | Low (use chemically stable media, sealed container) |
+| Phase instability from temperature | ~5 rad phase shift per 0.1 K at 5 cm path | **Severe; see below** |
+
+### Critical finding: phase encoding is impractical at centimeter-scale path lengths
+
+Simulation (`simulator/liquid_medium_noise.py`) shows that in water at 5 cm path length, a temperature deviation of only 0.1 K causes approximately **5 rad** of phase drift — enough to completely scramble any phase-encoded optical bead state. Achieving < 0.1 rad phase stability at 5 cm would require temperature control to better than 2 mK, which is impractical in a near-term prototype.
+
+**Practical implication:** For Phase 1 and Phase 2 liquid-medium prototypes, use **wavelength and polarization** encoding only. Phase encoding should be deferred until active interferometric stabilization or sub-millimeter path lengths are available.
+
+### Liquid medium comparison
+
+| Medium | Transparency | Refractive index | dn/dT (K⁻¹) | Recommended for |
+|---|---|---|---|---|
+| Distilled water | 200–1300 nm | 1.333 | −1.0×10⁻⁴ | Phase 1 baseline; low cost |
+| Glycerol-water | 200–1200 nm | 1.33–1.47 | −2.5×10⁻⁴ | Tunable RI; higher dn/dT |
+| Immersion oil | 400–800 nm | 1.515 | −3.0×10⁻⁴ | RI-matched windows; shorter range |
+| Fluorinert FC-770 | 250–2000 nm | 1.275 | −1.7×10⁻⁴ | Broadest range; highest cost |
+
+This approach is a **classical optical prototype design choice**. It hosts macroscopic multi-photon pulses, not single photons. It does not enable quantum coherence or quantum advantage.
 
 ---
 
@@ -386,6 +458,35 @@ In the interest of credibility, the following clarifications are important:
 
 ---
 
+## Comparative Simulations: Binary, BCD, SCD, and Optical Beads
+
+See also: [docs/comparative-simulation-framework.md](docs/comparative-simulation-framework.md)
+
+This repository includes a set of comparison simulators that measure trade-offs between four encoding approaches under controlled, explicitly stated model assumptions. The goal is **not** to prove universal superiority of any scheme — it is to expose measurable trade-offs between compactness, error detection, symbol density, and noise sensitivity.
+
+| Comparison | What it tests | Expected trade-off |
+|---|---|---|
+| BCD vs SCD | Decimal digit encoding under random bit flips | SCD uses 25% more bits but has 68.75% invalid states vs BCD's 37.5% — converting more bit-flip errors from silent to detected |
+| Binary photonic vs OBQC | Alphabet size M under D-dimensional Gaussian noise | Binary M=2 is most robust; higher-M OBC carries more bits/symbol but SER rises faster with noise; higher D preserves margin |
+| Binary-like vs qudit-like toy channel | M-level symbol transmission under loss and confusion | Higher M scales throughput proxy in clean channels but requires proportionally better measurement reliability to maintain advantage |
+
+### Simulator links
+
+- [simulator/electronic_binary_vs_scd.py](simulator/electronic_binary_vs_scd.py) — BCD vs SCD bit-flip comparison
+- [simulator/photonic_binary_vs_obqc.py](simulator/photonic_binary_vs_obqc.py) — Binary vs optical bead photonic comparison
+- [simulator/qudit_inspired_channel.py](simulator/qudit_inspired_channel.py) — Toy qudit-inspired channel (analytical, NOT quantum simulation)
+- [simulator/run_comparisons.py](simulator/run_comparisons.py) — Run all three at once
+- [docs/comparative-simulation-framework.md](docs/comparative-simulation-framework.md) — Framework documentation and fairness rules
+
+### Key caveats
+
+- The photonic comparison uses a simplified geometric noise model, not a physical optics simulation.
+- The qudit channel model is a toy analytical model and does NOT simulate quantum mechanics.
+- The electronic comparison uses an independent bit-flip model; real hardware faults are correlated.
+- All results are under idealized, explicitly stated model assumptions. Changing the assumptions changes the results.
+
+---
+
 ## Falsifiable Claims
 
 The following claims are specific, measurable, and testable:
@@ -450,6 +551,9 @@ Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/
 │   ├── optical-bead-state-model.md              ← State vector formalism and DOF model
 │   ├── deterministic-vs-quantum.md              ← Three-layer framework comparison
 │   ├── electronic-extension-soroban-decimal.md  ← SCD logic: 5-bit soroban decimal cell
+│   ├── comparative-simulation-framework.md      ← Comparison framework and fairness rules
+│   ├── sealed-liquid-optical-bead-medium.md     ← Sealed liquid cell as optical channel
+│   ├── optical-medium-stabilization.md          ← All medium options: air, liquid, solid, fiber
 │   ├── limitations.md                           ← Noise, crosstalk, scalability limitations
 │   └── roadmap.md                               ← Detailed prototype roadmap
 │
@@ -458,12 +562,20 @@ Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/
 │   ├── encode_decode.py               ← Optical bead alphabet, encoding, decoding
 │   ├── noise_model.py                 ← Gaussian noise, jitter, drift models
 │   ├── confusion_matrix.py            ← Multi-trial evaluation and confusion matrix
-│   └── soroban_decimal.py             ← SCD encode/decode, increment, add, display
+│   ├── soroban_decimal.py             ← SCD encode/decode, increment, add, display
+│   ├── electronic_binary_vs_scd.py    ← BCD vs SCD comparison under bit flips
+│   ├── photonic_binary_vs_obqc.py     ← Binary vs optical bead photonic comparison
+│   ├── qudit_inspired_channel.py      ← Toy qudit-inspired channel (NOT quantum sim)
+│   ├── liquid_medium_noise.py         ← Sealed liquid cell noise model
+│   ├── optical_medium_comparison.py   ← Stability comparison across all media
+│   ├── run_comparisons.py             ← Run all comparison simulators
+│   └── results/                       ← Generated CSV output files
 │
 └── diagrams/
     ├── soroban-to-optical-beads.md    ← Conceptual analogy diagram (Mermaid)
     ├── optical-bead-state-space.md    ← State space visualization (Mermaid)
-    └── architecture.md                ← System architecture diagram (Mermaid)
+    ├── architecture.md                ← System architecture diagram (Mermaid)
+    └── optical-medium-options.md      ← Medium options: air, liquid, solid, fiber (Mermaid)
 ```
 
 ---
