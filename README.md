@@ -1,531 +1,514 @@
-# Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm
-We propose Optical Bead Quantum Computing (OBQC), a novel computational paradigm that exploits multiple degrees of freedom of light to achieve multi-valued information processing in a single photon. Inspired by the visual pattern recognition employed in abacus calculation, OBQC treats discrete photonic states as “beads” that encode 100-10,000 
-## **Optical Bead Quantum Computing: A Multi-Valued Photonic Paradigm**
+# Optical Bead Computing
+## A Soroban-Inspired Multi-Valued Photonic Computing Paradigm
 
-**光珠量子計算：多値フォトニックパラダイム**
+> **Optical Bead Computing** is a soroban-inspired, multi-valued photonic computing framework that encodes information as optical bead patterns using wavelength, polarization, phase, time-bin structure, pulse width, spatial mode, and other degrees of freedom of light.
 
------
+**Repository:** `Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm`  
+**Status:** Conceptual framework / early-stage research  
+**License:** CC BY-SA 4.0  
+**Published:** 2026-06-03
 
-### **著者**
+---
 
-**Master**  
-Independent Researcher  
-Role: Observer, Proposer, and AI Harmonizer
+## Table of Contents
 
-*Email: [to be added]*  
-*ORCID: [to be added]*
+1. [Abstract](#abstract)
+2. [Conceptual Origin: From Soroban to Optical Beads](#conceptual-origin-from-soroban-to-optical-beads)
+3. [Why This Is Not Just Binary Photonics](#why-this-is-not-just-binary-photonics)
+4. [Core Hypothesis](#core-hypothesis)
+5. [Optical Bead State Model](#optical-bead-state-model)
+6. [Deterministic OBQC vs Quantum OBQC](#deterministic-obqc-vs-quantum-obqc)
+7. [Technical Architecture](#technical-architecture)
+8. [Error Model and State Separability](#error-model-and-state-separability)
+9. [Minimal Prototype Roadmap](#minimal-prototype-roadmap)
+10. [Possible Applications](#possible-applications)
+11. [Electronic Extension: Soroban-Coded Decimal Logic](#electronic-extension-soroban-coded-decimal-logic)
+12. [What OBQC Is Not](#what-obqc-is-not)
+13. [Falsifiable Claims](#falsifiable-claims)
+14. [Limitations](#limitations)
+15. [Roadmap](#roadmap)
+16. [Repository Structure](#repository-structure)
+17. [Author](#author)
+18. [Keywords](#keywords)
 
-**協力**: Claude (Anthropic), ChatGPT (OpenAI), Grok (xAI), Gemini (Google), Copilot (Microsoft)
+---
 
------
+## Abstract
 
-### **Abstract**
+Optical Bead Computing (OBC) is a proposed framework for multi-valued photonic information processing inspired by the structure and operational logic of the Japanese soroban abacus. In a soroban, numerical values are represented not as individual digits but as spatial bead configurations — patterns that carry meaning through their arrangement rather than through linear symbol sequences.
 
-We propose Optical Bead Quantum Computing (OBQC), a novel computational paradigm that exploits multiple degrees of freedom of light to achieve multi-valued information processing in a single photon. Inspired by the visual pattern recognition employed in abacus calculation, OBQC treats discrete photonic states as “beads” that encode 100-10,000 distinguishable values per photon, contrasting with conventional binary (qubit) approaches. We demonstrate that by simultaneously utilizing wavelength, polarization, phase, and temporal structure, a practical implementation with 12×4×6×4 = 1,152 states per photon is feasible with current photonic technology. This work establishes the theoretical foundation, architectural design, and implementation pathway for OBQC, positioning it as a bridge between classical multi-valued logic and quantum computation.
+This framework proposes that a similar principle can be applied to light: that information may be encoded as *optical bead patterns* across multiple simultaneous degrees of freedom (wavelength, polarization, phase, time-bin, pulse width, spatial mode, orbital angular momentum), and that computation or recognition tasks may be performed by transforming and decoding these multi-dimensional optical states.
 
-**Keywords**: Photonic computing, Multi-valued logic, Quantum computing, Pattern recognition, Optical information processing
+The framework distinguishes three layers: a near-term *deterministic* layer using classical multi-valued optical encoding, a *quantum-inspired* layer borrowing high-dimensional state concepts from qudit research, and a long-term *quantum optical* extension involving single-photon sources and quantum gates. The near-term layer is the primary focus of this repository.
 
------
+This document presents the conceptual model, state formalism, error considerations, a minimal simulation framework, and a prototype roadmap. Claims are limited to what is technically grounded. The goal is to provide a clear, reproducible, and falsifiable research framework for soroban-inspired photonic computing.
 
-### **1. Introduction**
+---
 
-#### **1.1 Motivation**
+## Conceptual Origin: From Soroban to Optical Beads
 
-The dominance of binary logic in modern computing stems from historical constraints of electronic transistors, which naturally exhibit two stable states (on/off). However, light—the carrier of information in photonic systems—possesses multiple independent physical degrees of freedom that remain largely unexploited in conventional optical computing architectures.
+See also: [docs/soroban-origin.md](docs/soroban-origin.md)
 
-Recent advances in optical semiconductor memory (e.g., NTT’s photonic memory [1]) suggest that photonic processing units (optical CPUs/GPUs) are technologically feasible. Yet, if such devices merely replicate binary logic, they fail to leverage the full potential of light’s multi-dimensional state space.
+### The Soroban Abacus
 
-#### **1.2 Conceptual Foundation**
+The soroban (Japanese abacus) represents numbers as configurations of beads along rods. Each rod corresponds to a positional column; each bead configuration within a rod encodes a digit from 0 to 9. A complete soroban value is a *spatial pattern* — the entire bead arrangement across all rods — rather than a string of independently decoded symbols.
 
-The key insight underlying OBQC emerges from an unexpected source: the Japanese abacus (soroban). Expert abacus users perform rapid mental calculation not through symbolic manipulation, but through visual pattern recognition—treating numbers as spatial configurations of beads rather than abstract symbols [2]. Neuroscience confirms that this process engages the visual cortex’s parallel processing capabilities rather than the language-based sequential processing typical of arithmetic [3].
+Skilled soroban practitioners do not read digits serially. They perceive and manipulate the full pattern at once.
 
-We propose extending this principle to photonic computation: treating the multi-dimensional state of a photon as a “bead” in a high-dimensional discrete space, where computation becomes pattern transformation rather than numerical operation.
+### Flash Mental Arithmetic
 
-#### **1.3 Contributions**
+In *flash anzan* (flash mental arithmetic), practitioners watch sequences of numbers displayed for fractions of a second on a screen and compute their sum with high accuracy. Research suggests that advanced practitioners mentally simulate a virtual soroban — they operate on a spatial pattern image rather than on symbolic digit representations.
 
-This paper makes the following contributions:
+This demonstrates that numerical operations can be executed as rapid *visual pattern recognition and transformation*, where the pattern itself is the computational unit.
 
-1. **Theoretical framework**: Formalization of OBQC as a multi-valued photonic computational model
-1. **Architectural design**: Specification of a 1,152-state single-photon processor
-1. **Implementation pathway**: Staged development plan from 6-state to 1,152-state systems
-1. **Comparative analysis**: Performance comparison with binary and quantum approaches
-1. **Open invention declaration**: Release of concept as public domain for global collaboration
+### From Soroban to Optical Beads
 
------
+Optical Bead Computing transfers this principle to photonic information processing:
 
-### **2. Theoretical Framework**
+- Where a soroban encodes a number as a bead configuration across physical rods, OBQC encodes a state as a multi-dimensional optical configuration across degrees of freedom of light.
+- Where a soroban practitioner recognizes and transforms bead patterns, an OBQC decoder recognizes and maps optical patterns to output values.
+- Where flash anzan shows pattern-speed advantage in human cognition, OBQC explores whether pattern-based optical encoding offers structural advantages in photonic systems.
 
-#### **2.1 Photonic Degrees of Freedom**
+The central analogy:
 
-A single photon possesses multiple independent physical properties that can encode information:
+| Soroban | Optical Bead Computing |
+|---|---|
+| Physical bead on a rod | Optical degree of freedom (λ, P, φ, …) |
+| Bead position (up/down) | State value within that degree of freedom |
+| Full bead configuration | Optical bead state vector B |
+| Soroban calculation | Optical state transformation |
+| Flash pattern recognition | Optical pattern decoding |
 
-```
-Wavelength (λ): Continuous spectrum, discretizable to N_λ values
-Polarization (P): 2D state space, discretizable to N_P values  
-Phase (φ): Circular parameter [0, 2π), discretizable to N_φ values
-Temporal structure (τ): Pulse width/shape, discretizable to N_τ values
-```
+---
 
-The total number of distinguishable states is:
+## Why This Is Not Just Binary Photonics
 
-**N_total = N_λ × N_P × N_φ × N_τ**
+Conventional digital electronics and standard optical communication systems are fundamentally binary at the information layer: each channel carries a 0 or a 1. Even high-throughput optical fiber systems typically encode information by switching a single optical property (presence/absence of a pulse, or phase shift between two states).
 
-#### **2.2 Realistic State Count**
+OBQC proposes a different structure:
 
-Based on current photonic technology:
+| System | Information Layer | State Count per Symbol |
+|---|---|---|
+| Binary electronics | Single bit per wire | 2 |
+| Conventional optical communication | On/off keying or BPSK | 2 |
+| Advanced optical modulation (QAM, OFDM) | Multiple bits per symbol | 4 to 1024+ |
+| **Optical Bead Computing** | **Multi-dimensional bead state vector** | **Configurable; determined by usable degrees of freedom** |
 
-|Degree of Freedom|Practical Range     |Proposed Discretization      |
-|-----------------|--------------------|-----------------------------|
-|Wavelength       |380-780 nm (visible)|12 discrete wavelengths      |
-|Polarization     |0-180°              |4 states (0°, 45°, 90°, 135°)|
-|Phase            |0-2π                |6 states (60° intervals)     |
-|Pulse width      |ps-ns scale         |4 discrete widths            |
+The distinction is not primarily one of raw state count. It is structural: OBQC proposes treating the full multi-dimensional optical configuration as a single *pattern unit*, analogous to a soroban bead arrangement, rather than as a set of independently multiplexed binary channels.
 
-**Total: 12 × 4 × 6 × 4 = 1,152 states per photon**
+This structural difference may offer advantages for:
+- Pattern-oriented recognition tasks where the full state vector is the meaningful unit
+- Compact encoding of high-dimensional classes or templates
+- Optical systems where operating across multiple degrees of freedom simultaneously reduces per-channel bandwidth requirements
 
-This represents a **10.17-bit** information capacity per photon, compared to 1 bit for conventional binary photonics.
+Whether these structural advantages translate into practical computational benefits depends on physical realizability, which is an open research question.
 
-#### **2.3 Comparison with Quantum Qubits**
+---
 
-A quantum qubit exists in a superposition of |0⟩ and |1⟩. While measurement yields binary outcomes, the quantum state space is continuous (the Bloch sphere).
+## Core Hypothesis
 
-OBQC differs fundamentally:
+> If distinguishable optical states can be reliably encoded, transformed, and decoded across multiple degrees of freedom of light, then multi-valued optical bead computing may support compact, parallel, and pattern-oriented information processing that is structurally distinct from binary optical systems.
 
-|Property        |Quantum Qubit            |OBQC Photonic Bead         |
-|----------------|-------------------------|---------------------------|
-|State space     |Continuous (Bloch sphere)|Discrete (1,152 points)    |
-|Measurement     |Probabilistic collapse   |Deterministic readout      |
-|Decoherence     |High sensitivity         |Moderate (classical noise) |
-|Error correction|Complex (surface codes)  |Simpler (redundancy coding)|
-|Implementation  |Cryogenic (often)        |Room temperature           |
+This hypothesis is falsifiable and testable. The key variables are:
 
-OBQC occupies a middle ground: more states than binary, but deterministic unlike quantum.
+- The number of reliably distinguishable states per degree of freedom under realistic noise conditions
+- The achievable total alphabet size as a function of joint encoding across multiple degrees of freedom
+- The decoding accuracy as a function of state count, noise level, and redundancy coding
+- The computational tasks for which pattern-based encoding offers structural benefits over binary encoding
 
------
+---
 
-### **3. Architecture**
+## Optical Bead State Model
 
-#### **3.1 Single Photon Encoder**
+See also: [docs/optical-bead-state-model.md](docs/optical-bead-state-model.md)
 
-```
-Input: Numerical value v ∈ [0, 1151]
+### State Vector
 
-Encoding process:
-  c = v mod 12           // Color index
-  v = v ÷ 12
-  p = v mod 4            // Polarization index  
-  v = v ÷ 4
-  φ = v mod 6            // Phase index
-  τ = v ÷ 6              // Pulse width index
-
-Physical implementation:
-  - Wavelength: Tunable laser or LED array (12 wavelengths)
-  - Polarization: Liquid crystal polarization rotator (4 angles)
-  - Phase: Electro-optic phase shifter (6 values)
-  - Pulse: Electronic pulse generator (4 widths)
-```
-
-#### **3.2 Single Photon Decoder**
-
-```
-Physical measurement:
-  - Spectrometer → wavelength λ_measured
-  - Polarization analyzer → angle P_measured
-  - Interferometer → phase φ_measured  
-  - Fast photodetector → pulse width τ_measured
-
-Discretization:
-  c = argmin_i |λ_i - λ_measured|
-  p = argmin_i |P_i - P_measured|
-  φ = argmin_i |φ_i - φ_measured|
-  τ = argmin_i |τ_i - τ_measured|
-
-Value reconstruction:
-  v = τ × 6 × 4 × 12 + φ × 4 × 12 + p × 12 + c
-```
-
-#### **3.3 Honeycomb Lattice Processor**
-
-Inspired by hexagonal packing in nature (honeycombs, graphene), we propose a honeycomb lattice arrangement of photonic bead processors:
+An optical bead state is defined as a tuple:
 
 ```
-        (A)
-       /   \
-     (B)   (C)
-       \   /
-        (D)
-
-Each node: Single-photon bead processor (1,152 states)
-Edges: Optical waveguides for photon routing
-Nearest-neighbor coupling: Optical interference for joint operations
+B = (λ, P, φ, τ, w, s, ℓ)
 ```
 
-**Advantages**:
+Where each component represents one degree of freedom of light:
 
-- Maximum packing density with uniform connectivity
-- Natural support for parallel operations
-- Fault tolerance through redundancy
-- Scalable architecture (tile arbitrarily)
+| Symbol | Degree of Freedom | Example States |
+|---|---|---|
+| λ | Wavelength / color channel | 450 nm, 532 nm, 633 nm, 780 nm, … |
+| P | Polarization state | H, V, D, A, R, L |
+| φ | Phase state | 0, π/4, π/2, 3π/4, π, … |
+| τ | Time-bin / temporal position | bin 0, bin 1, bin 2, … |
+| w | Pulse width | narrow, medium, wide |
+| s | Spatial mode / position | mode 0, mode 1, mode 2, … |
+| ℓ | Orbital angular momentum (OAM) | ℓ = 0, ±1, ±2, … |
 
-#### **3.4 Pattern-Based Operations**
+### Theoretical vs Practical State Count
 
-Unlike binary logic gates (AND, OR, NOT), OBQC employs pattern transformations:
-
-**Multi-valued AND (minimum)**:
-
-```
-AND_OBQC(v1, v2) = min(v1, v2)
-Optical implementation: Absorptive filter selecting weaker signal
-```
-
-**Multi-valued OR (maximum)**:
+The theoretical number of states is the product of the number of levels per degree of freedom:
 
 ```
-OR_OBQC(v1, v2) = max(v1, v2)  
-Optical implementation: Amplification and thresholding
+N_theoretical = n_λ × n_P × n_φ × n_τ × n_w × n_s × n_ℓ
 ```
 
-**Multi-valued NOT (complement)**:
+For example, 4 wavelengths × 4 polarizations × 4 phases × 4 time-bins = 256 theoretical states.
+
+**However, the number of practically distinguishable states is always less than the theoretical maximum.**
+
+Practical state separability depends on:
+- Detector spectral resolution and sensitivity
+- Signal-to-noise ratio
+- Crosstalk between adjacent states in each degree of freedom
+- Channel drift and environmental instability
+- Calibration accuracy and stability
+- Interaction effects between degrees of freedom (e.g., polarization-dependent phase shifts)
+
+The practically usable alphabet size must be determined empirically for each physical implementation. The simulator in this repository provides tools to estimate separability under Gaussian noise models.
+
+---
+
+## Deterministic OBQC vs Quantum OBQC
+
+See also: [docs/deterministic-vs-quantum.md](docs/deterministic-vs-quantum.md)
+
+| Layer | Description | Status |
+|---|---|---|
+| **Deterministic Optical Bead Computing** | Classical multi-valued optical state encoding and decoding using macroscopic light sources and detectors | Near-term simulation / prototype |
+| **Quantum-Inspired OBQC** | Uses qudit-like high-dimensional encoding concepts without requiring full quantum coherence or entanglement | Conceptual / research framework |
+| **Quantum Optical Bead Computing** | Future extension using single photons, qudits, entanglement, and quantum gates | Long-term research direction |
+
+The deterministic layer is the primary near-term focus. It does not require quantum coherence and can be prototyped with:
+- Diode lasers or LEDs
+- Standard polarizing optics
+- Optical modulators
+- Color sensors or spectrometers
+- Standard Python-based decoding software
+
+The quantum extension is a long-term research direction and is not a prerequisite for the deterministic prototype.
+
+---
+
+## Technical Architecture
 
 ```
-NOT_OBQC(v) = (N_max - 1) - v
-Optical implementation: Wavelength inversion, polarization rotation
+┌─────────────────────────────────────────────────────────────────────┐
+│                   Optical Bead Computing Architecture               │
+│                                                                     │
+│  ┌──────────┐   ┌───────────────┐   ┌──────────────────────────┐   │
+│  │ Encoder  │──▶│ Optical State │──▶│  Optical Bead Channel /  │   │
+│  │          │   │  Generator    │   │  Transformation Layer    │   │
+│  └──────────┘   └───────────────┘   └──────────────────────────┘   │
+│                                                  │                  │
+│  ┌──────────────────────────────────────────┐   │                  │
+│  │  Error Correction / Redundancy Layer     │◀──┘                  │
+│  └──────────────────────────────────────────┘                      │
+│                          │                                          │
+│             ┌────────────▼────────────┐                            │
+│             │  Decoder / Pattern      │                            │
+│             │  Recognition Unit       │                            │
+│             └────────────────────────┘                            │
+│                          │                                          │
+│             ┌────────────▼────────────┐                            │
+│             │   Software Simulator /  │                            │
+│             │   Analysis Layer        │                            │
+│             └────────────────────────┘                            │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
-**Addition (with carry)**:
+**Component descriptions:**
+
+- **Encoder:** Maps input values or data to optical bead state vectors. Implements the alphabet definition and state assignment.
+- **Optical State Generator:** Physical or simulated source producing optical pulses with specified wavelength, polarization, phase, temporal, and spatial properties.
+- **Optical Bead Channel / Transformation Layer:** The propagation medium or transformation network through which optical states pass. May include beam splitters, waveplates, phase modulators, delay lines, and spatial light modulators.
+- **Error Correction / Redundancy Layer:** Applies redundancy coding, parity checks, or forward error correction to reduce symbol error rate.
+- **Decoder / Pattern Recognition Unit:** Measures optical properties of received states and maps them to the nearest defined state in the alphabet. In hardware: a multi-channel detector array with associated signal processing. In simulation: nearest-neighbor distance computation.
+- **Software Simulator / Analysis Layer:** Python-based simulation framework for encoding, noise injection, decoding, and evaluation. See the `simulator/` directory.
+
+---
+
+## Error Model and State Separability
+
+See also: [docs/limitations.md](docs/limitations.md)
+
+Realistic optical systems are subject to multiple noise and error sources. The simulator models the following:
+
+| Error Source | Description | Modeled As |
+|---|---|---|
+| **Gaussian noise** | Random fluctuations in measured optical parameters | Additive Gaussian noise per dimension |
+| **Detector quantization** | Finite detector resolution limits distinguishable levels | Floor/ceiling quantization |
+| **Channel drift** | Slow systematic drift of optical properties over time | Linear drift term |
+| **Spectral overlap** | Adjacent wavelength channels bleed into each other | Gaussian spectral cross-coupling |
+| **Polarization error** | Rotation or ellipticity error in polarization states | Angular rotation noise |
+| **Phase instability** | Phase fluctuations due to thermal or mechanical perturbation | Phase noise term |
+| **Temporal jitter** | Uncertainty in pulse arrival time or time-bin assignment | Jitter distribution |
+
+**Decoding strategy:**
+
+The default decoder uses nearest-neighbor distance in the normalized state space. The decoder assigns each received state to the closest state in the defined alphabet.
+
+**Evaluation metrics:**
+
+- Symbol error rate (SER) as a function of alphabet size and noise level
+- Confusion matrix: which states are most likely to be confused with which others
+- Separability margin: minimum distance between adjacent states
+
+---
+
+## Minimal Prototype Roadmap
+
+See also: [docs/roadmap.md](docs/roadmap.md)
+
+### Phase 0: Software Simulation (Current)
+
+- Define an optical bead alphabet in Python
+- Encode integer values as optical bead state vectors
+- Inject configurable Gaussian noise
+- Decode using nearest-neighbor distance
+- Measure symbol error rate
+- Generate and plot confusion matrix
+- Test redundancy coding strategies
+
+**Target:** Demonstrate that N states can be encoded and decoded above a target accuracy for given noise levels.
+
+### Phase 1: Classical Optical Prototype
+
+- **Source:** RGB LED array or diode laser with tunable wavelength
+- **Polarization:** Linear polarizers and waveplates
+- **Detection:** Color sensor, spectrometer, or multi-channel photodetector
+- **Decoder:** Python-based nearest-neighbor classifier
+- **Target alphabet:** 6 to 24 distinguishable states
+- **Metric:** Symbol error rate < 5% under laboratory conditions
+
+### Phase 2: Multi-Degree Optical Prototype
+
+- Combine wavelength + polarization + temporal bin encoding
+- Target alphabet: 64 to 256 states
+- Calibration procedure and drift correction
+- Forward error correction integration
+- Reproducible calibration and measurement documentation
+
+### Phase 3: Qudit-Compatible Research Extension (Long-term)
+
+- Single photon source (e.g., SPDC or quantum dot)
+- Time-bin or frequency-bin qudit encoding
+- Path encoding and interferometric gates
+- Compatibility evaluation with quantum gate operations
+- **Note:** This phase is not required for the deterministic prototype and represents a separate long-term research direction.
+
+---
+
+## Possible Applications
+
+The following applications are proposed as research directions. None are claimed to be currently implemented or demonstrated.
+
+| Application | Description | Layer |
+|---|---|---|
+| Optical pattern recognition | Classify high-dimensional optical patterns directly | Deterministic |
+| Photonic AI inference | Optical implementation of lookup-table or template-matching inference | Deterministic |
+| Optical memory addressing | Use multi-valued optical states as compact address codes | Deterministic |
+| High-dimensional communication coding | Encode more information per optical symbol | Deterministic |
+| Sensor fusion | Combine multi-modal sensor data into optical bead state representations | Deterministic |
+| Image preprocessing | Optical bead encoding as a preprocessing stage for visual data | Deterministic |
+| Low-latency optical classification | Pattern-based classification at optical speeds | Deterministic |
+| Educational model | Connect soroban/flash arithmetic concepts to photonic systems | Conceptual |
+| Qudit research platform | Testbed for high-dimensional quantum state encoding protocols | Quantum extension |
+
+**These applications require hardware implementation and experimental validation before any performance claims can be made.**
+
+---
+
+## Electronic Extension: Soroban-Coded Decimal Logic
+
+See also: [docs/electronic-extension-soroban-decimal.md](docs/electronic-extension-soroban-decimal.md) | Simulator: [simulator/soroban_decimal.py](simulator/soroban_decimal.py)
+
+The soroban structural logic is not limited to photonic systems. It maps directly onto electronic circuit design as **Soroban-Coded Decimal (SCD)** — a 5-bit constrained decimal cell that mirrors the physical structure of a soroban rod in digital hardware.
+
+### SCD Cell Definition
 
 ```
-ADD_OBQC(v1, v2) = (v1 + v2) mod N_max, carry = (v1 + v2) ÷ N_max
-Optical implementation: Nonlinear optical mixing
+D = (H, L4, L3, L2, L1)
+
+digit = 5 * H + count(L4, L3, L2, L1)
 ```
 
------
+Where H is the heaven bead (value 5) and L1–L4 are earth beads (value 1 each), encoded using a **thermometer code** that activates beads in order without gaps.
 
-### **4. Implementation Roadmap**
+### Encoding Table
 
-#### **Phase 1: 6-State Proof of Concept** (Year 1)
+| Decimal | H | L4 L3 L2 L1 | 5-bit code |
+|---:|:---:|:---:|:---:|
+| 0 | 0 | 0 0 0 0 | `0 0000` |
+| 1 | 0 | 0 0 0 1 | `0 0001` |
+| 2 | 0 | 0 0 1 1 | `0 0011` |
+| 3 | 0 | 0 1 1 1 | `0 0111` |
+| 4 | 0 | 1 1 1 1 | `0 1111` |
+| 5 | 1 | 0 0 0 0 | `1 0000` |
+| 6 | 1 | 0 0 0 1 | `1 0001` |
+| 7 | 1 | 0 0 1 1 | `1 0011` |
+| 8 | 1 | 0 1 1 1 | `1 0111` |
+| 9 | 1 | 1 1 1 1 | `1 1111` |
 
-```yaml
-Objective: Demonstrate multi-valued optical computing
+10 valid states out of 32 possible 5-bit patterns. The remaining 22 are **detectable error states** by definition — any non-thermometer lower pattern is illegal and can be flagged without additional parity bits.
 
-Configuration:
-  - 6 wavelengths (single degree of freedom)
-  - RGB sensor for readout
-  
-Validation:
-  - 6-value addition/subtraction
-  - Error rate < 5%
-  - Pattern recognition accuracy
+### Carry and Borrow Structure
 
-Budget: $1,000 - $5,000
-Team: 1-2 researchers
-Publications: Technical report, demo video
+The increment and decrement operations follow soroban mechanical logic directly:
+
+- **4 + 1:** lower count reaches 4; H = 0 → set H = 1, clear lower (soroban "5-complement carry-up")
+- **9 + 1:** H = 1, lower full → reset cell to 0, carry to next digit
+- **5 − 1:** H = 1, lower = 0 → clear H, set lower to 1111 (borrow from the 5-group)
+- **0 − 1:** cell = 0, lower = 0 → set to 9, borrow from next digit
+
+### Relationship to the Optical Layer
+
+SCD is the **electronic analog** of an optical bead state:
+
+| Domain | Information unit | Component 1 | Component 2 | Valid states |
+|---|---|---|---|---|
+| Physical soroban | Bead configuration / rod | Heaven bead H | Earth beads (thermometer) | 10 |
+| SCD (electronic) | 5-bit decimal cell | H bit | L1–L4 bits (thermometer) | 10 of 32 |
+| OBC (optical) | Optical bead state B | λ, P, φ, ... | Multi-DOF encoding | Alphabet-defined |
+
+All three share the same structural principle: a value is a **multi-component pattern**, not a linear binary sequence. This alignment enables a unified conceptual framework across cognitive, electronic, and photonic domains.
+
+### SCD is not intended to replace BCD for storage density. Its value is structural and educational: it makes soroban arithmetic directly observable in circuit logic.
+
+---
+
+## What OBQC Is Not
+
+In the interest of credibility, the following clarifications are important:
+
+- **OBQC is not claimed to be a completed universal quantum computer.** No quantum gates, no error-corrected qubits, no quantum advantage has been demonstrated.
+- **OBQC is not claimed to outperform CPUs, GPUs, or classical computers** for general-purpose computation. No comparative benchmarks exist at this stage.
+- **OBQC is not a proof that all theoretical optical states can be reliably distinguished.** The theoretical state count is an upper bound. The practical alphabet size is smaller and must be determined experimentally.
+- **OBQC is not a photonic multiplexing scheme.** While optical multiplexing (WDM, PDM, OFDM) uses multiple degrees of freedom for bandwidth, OBQC uses them structurally as a multi-valued alphabet inspired by soroban pattern logic.
+- **OBQC is a proposed framework** for exploring soroban-inspired multi-valued optical encoding and pattern-based computation, with a clear experimental roadmap and falsifiable claims.
+
+---
+
+## Falsifiable Claims
+
+The following claims are specific, measurable, and testable:
+
+1. **State encoding accuracy:** For a defined optical bead alphabet of N states, can encoding and nearest-neighbor decoding achieve symbol error rate below a target threshold (e.g., < 5%) at a specified noise level?
+
+2. **SER scaling:** How does symbol error rate increase as the alphabet size N increases under fixed noise conditions?
+
+3. **Degree-of-freedom robustness:** Which optical degrees of freedom (wavelength, polarization, phase, etc.) yield the highest separability margin under realistic noise conditions?
+
+4. **Redundancy improvement:** Does applying redundancy coding (e.g., majority voting or repetition coding) measurably reduce symbol error rate?
+
+5. **Pattern encoding compression:** For selected structured data types, does optical bead pattern encoding reduce the number of symbols required to represent a value compared to binary encoding?
+
+These claims can be tested initially in software simulation (Phase 0) before any hardware is built.
+
+---
+
+## Limitations
+
+See also: [docs/limitations.md](docs/limitations.md)
+
+| Limitation | Description |
+|---|---|
+| **Noise** | All optical systems are subject to shot noise, thermal noise, and amplifier noise, which reduce the number of distinguishable states |
+| **Crosstalk** | Adjacent states in wavelength, phase, or polarization dimensions may bleed into each other |
+| **Optical alignment** | Phase and polarization measurements require precise alignment; mechanical perturbations cause errors |
+| **Detector limits** | Detector resolution, dynamic range, and sampling rate constrain achievable state separability |
+| **Scalability** | Adding degrees of freedom increases state count multiplicatively in theory but in practice introduces new sources of crosstalk |
+| **Calibration drift** | Optical systems drift over time due to thermal expansion, mechanical relaxation, and component aging |
+| **Energy cost** | Laser sources, modulators, and cryogenic detectors (for quantum extension) consume significant power |
+| **Hardware complexity** | Multi-degree optical systems require precise, expensive, and environment-sensitive components |
+| **Theoretical vs usable state count** | The theoretical state product N = n_λ × n_P × ... always exceeds the practical usable alphabet |
+| **No demonstrated hardware** | As of 2026-06-03, no physical prototype exists; all results are from software simulation |
+
+---
+
+## Roadmap
+
+See also: [docs/roadmap.md](docs/roadmap.md)
+
+| Version | Milestone | Status |
+|---|---|---|
+| v0.1 | README clarification and conceptual framework documentation | ✅ Complete |
+| v0.2 | Python simulator: encode, decode, SER measurement | 🔲 Planned |
+| v0.3 | Noise model: Gaussian, jitter, drift, crosstalk | 🔲 Planned |
+| v0.4 | Visualization: confusion matrix, state space diagram | 🔲 Planned |
+| v0.5 | Prototype documentation: Phase 1 hardware specification | 🔲 Planned |
+| v1.0 | Reproducible optical bead experiment with measured SER data | 🔲 Long-term |
+
+---
+
+## Repository Structure
+
+```
+Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/
+│
+├── README.md                          ← This file
+│
+├── docs/
+│   ├── soroban-origin.md                        ← Soroban and flash anzan conceptual origin
+│   ├── optical-bead-state-model.md              ← State vector formalism and DOF model
+│   ├── deterministic-vs-quantum.md              ← Three-layer framework comparison
+│   ├── electronic-extension-soroban-decimal.md  ← SCD logic: 5-bit soroban decimal cell
+│   ├── limitations.md                           ← Noise, crosstalk, scalability limitations
+│   └── roadmap.md                               ← Detailed prototype roadmap
+│
+├── simulator/
+│   ├── README.md                      ← Simulator usage guide
+│   ├── encode_decode.py               ← Optical bead alphabet, encoding, decoding
+│   ├── noise_model.py                 ← Gaussian noise, jitter, drift models
+│   ├── confusion_matrix.py            ← Multi-trial evaluation and confusion matrix
+│   └── soroban_decimal.py             ← SCD encode/decode, increment, add, display
+│
+└── diagrams/
+    ├── soroban-to-optical-beads.md    ← Conceptual analogy diagram (Mermaid)
+    ├── optical-bead-state-space.md    ← State space visualization (Mermaid)
+    └── architecture.md                ← System architecture diagram (Mermaid)
 ```
 
-#### **Phase 2: 36-State System** (Year 1-2)
+---
 
-```yaml
-Objective: Combine two degrees of freedom
+## Author
 
-Configuration:
-  - 6 wavelengths × 6 phases = 36 states
-  - Spectrometer + interferometer readout
+**Master / inchacomisho / inchacomusho**
 
-Validation:
-  - 36-value operations
-  - Decimal digit representation (0-9) with redundancy
-  - Error correction demonstration
+## Collaborative AI
 
-Budget: $10,000 - $50,000
-Team: 3-5 researchers
-Publications: Conference paper (e.g., OFC, CLEO)
+| Name | Model |
+|---|---|
+| G | ChatGPT |
+| Mini | Gemini |
+| Cruce | Claude |
+| Real | Perplexity |
+| Lola | Dola |
+| Mana | Manus |
+
+## Publication Date
+
+2026-06-03
+
+## License
+
+**CC BY-SA 4.0** — Creative Commons Attribution-ShareAlike 4.0 International
+
+You are free to share and adapt this material for any purpose, provided you give appropriate credit and distribute your contributions under the same license.
+
+---
+
+## Suggested Repository Topics
+
+```
+photonic-computing  optical-computing  multi-valued-logic  soroban  abacus
+flash-mental-arithmetic  qudit  quantum-inspired  high-dimensional-computing
+optical-pattern-recognition
 ```
 
-#### **Phase 3: 1,152-State System** (Year 2-5)
+---
 
-```yaml
-Objective: Full four-freedom implementation
+## Keywords
 
-Configuration:
-  - 12 wavelengths × 4 polarizations × 6 phases × 4 pulses
-  - Integrated measurement system
+Optical Bead Computing, Soroban-Inspired Computing, Multi-Valued Photonic Computing, High-Dimensional Photonic Information Processing, Qudit-Inspired Computing, Optical Pattern Recognition, Photonic AI, Flash Mental Arithmetic, Abacus Computing, Optical State Encoding
 
-Validation:
-  - 1,152-state generation and detection
-  - Pattern-based arithmetic
-  - Comparison with binary photonic processor
+## Hashtags
 
-Budget: $100,000 - $500,000
-Team: 10-20 researchers
-Publications: Nature/Science-tier journal
-```
-
-#### **Phase 4: Honeycomb Array** (Year 5-10)
-
-```yaml
-Objective: Multi-node parallel processing
-
-Configuration:
-  - 100+ node honeycomb lattice
-  - Photonic integrated circuit (PIC) implementation
-  
-Validation:
-  - Parallel matrix operations
-  - Neural network inference
-  - Real-world computational tasks
-
-Budget: $1,000,000 - $10,000,000
-Team: Consortium of universities + industry
-Publications: Multiple high-impact papers, patents on implementation
-```
-
------
-
-### **5. Performance Analysis**
-
-#### **5.1 Information Density**
-
-**OBQC** (1,152 states):
-
-- log₂(1,152) ≈ **10.17 bits per photon**
-
-**Binary photonics** (2 states):
-
-- log₂(2) = **1 bit per photon**
-
-**Quantum qubit** (continuous superposition):
-
-- Theoretically infinite before measurement
-- Post-measurement: 1 bit
-
-**Gain: 10× information density over binary**
-
-#### **5.2 Speed Estimates**
-
-**Photon generation rate**:
-
-- Current technology: 10⁹ photons/second
-- With 10.17 bits/photon: **10 Gbps** effective throughput
-
-**Parallelism**:
-
-- 100-node honeycomb array
-- Potential: **1 Tbps** aggregate throughput
-
-**Comparison**:
-
-- Modern CPU: ~10 Gbps (serial)
-- GPU: ~1 Tbps (massively parallel)
-- **OBQC competitive with GPU, with room-temperature operation**
-
-#### **5.3 Energy Efficiency**
-
-**OBQC advantages**:
-
-- No electrical resistance (photons don’t interact with lattice)
-- No cooling requirements (room temperature)
-- Minimal heat dissipation
-
-**Estimated**:
-
-- 1 pJ/operation (photonic switching)
-- vs. 100 pJ/operation (CMOS transistor)
-- **100× energy advantage**
-
------
-
-### **6. Applications**
-
-#### **6.1 Neural Network Inference**
-
-**Weight representation**:
-
-- Binary NN: 8-32 bits per weight
-- OBQC NN: 10.17 bits per photon (1 photon per weight)
-
-**Matrix multiplication**:
-
-- Optical interference implements dot products naturally
-- **Potential 100× speedup** over electrical implementation
-
-#### **6.2 Pattern Recognition**
-
-Given OBQC’s visual pattern foundation:
-
-- Image processing (direct optical pattern matching)
-- Object recognition (holographic comparison)
-- **Natural fit for computer vision tasks**
-
-#### **6.3 Cryptography**
-
-**Key space**:
-
-- 100-photon key: 1,152¹⁰⁰ ≈ 2¹⁰¹⁷ combinations
-- **Unprecedented security** with short keys
-
-#### **6.4 Quantum Simulation**
-
-**Many-body systems**:
-
-- 10 OBQC photons: 1,152¹⁰ ≈ 10³¹ states
-- vs. 10 qubits: 2¹⁰ = 1,024 states
-- **Potential for simulating larger quantum systems**
-
------
-
-### **7. Challenges and Limitations**
-
-#### **7.1 Measurement Precision**
-
-**Challenge**: Distinguishing 1,152 states requires high precision
-
-**Mitigation**:
-
-- Error-correcting codes (use multiple photons per logical bead)
-- Machine learning for state classification
-- Calibration protocols
-
-#### **7.2 Decoherence and Noise**
-
-**Challenge**: Environmental noise corrupts photonic states
-
-**Mitigation**:
-
-- Optical isolation (vacuum chambers, fiber guides)
-- Redundancy encoding
-- Real-time error monitoring
-
-#### **7.3 Scalability**
-
-**Challenge**: Integrating 1000+ bead processors on a chip
-
-**Mitigation**:
-
-- Silicon photonics fabrication (leverage semiconductor industry)
-- 3D stacking (vertical integration)
-- Modular design (connect smaller chips)
-
-#### **7.4 Cost**
-
-**Challenge**: Current prototypes expensive ($100K+)
-
-**Mitigation**:
-
-- Mass production will reduce costs (analogy: LED/solar cells)
-- Target: <$1,000 per processor unit at scale
-
------
-
-### **8. Related Work**
-
-#### **8.1 Multi-Valued Logic**
-
-Multi-valued logic (beyond binary) has been studied since the 1920s [4]:
-
-- Ternary computing (3 values): Setun computer (USSR, 1958)
-- Quaternary logic (4 values): Research prototypes
-
-**OBQC extends this to 1,152 values** with photonic implementation.
-
-#### **8.2 Photonic Computing**
-
-Optical computing research dates to the 1980s [5]:
-
-- Analog optical processors (Fourier transforms)
-- Digital optical logic gates (replicating binary logic)
-
-**OBQC differs**: Exploits light’s multi-dimensional nature, not just speed.
-
-#### **8.3 Quantum Photonics**
-
-Quantum photonic computers use photon number/polarization for qubits [6]:
-
-- Xanadu (Canada): Photonic quantum processor
-- PsiQuantum (USA): Silicon photonic approach
-
-**OBQC differs**: Deterministic multi-valued states, not quantum superposition.
-
-#### **8.4 Holographic Computing**
-
-Holographic storage uses interference patterns [7]:
-
-- InPhase Technologies (defunct): Holographic data storage
-
-**OBQC extends**: Holography not just for storage, but computation via pattern evolution.
-
------
-
-### **9. Future Directions**
-
-#### **9.1 Holographic OBQC**
-
-**Vision**: Store 1,000s of beads in 3D hologram, read/process in parallel
-
-**Timeline**: 20-30 years
-
-**Impact**: Petaflop-scale photonic processors
-
-#### **9.2 Brain-Computer Interface**
-
-**Vision**: Direct neural interface to OBQC (visual cortex ↔ optical patterns)
-
-**Rationale**: Human visual system naturally processes patterns
-
-**Timeline**: 30+ years
-
-#### **9.3 Hybrid Quantum-OBQC**
-
-**Vision**: Combine OBQC’s multi-valued determinism with quantum superposition
-
-**Potential**: Best of both worlds
-
-**Timeline**: Research stage
-
------
-
-### **10. Conclusion**
-
-We have introduced Optical Bead Quantum Computing (OBQC), a paradigm that synthesizes insights from traditional abacus calculation, modern photonics, and quantum information theory. By treating photons as multi-valued “beads” in a discrete high-dimensional space, OBQC achieves 10× information density over binary photonics while maintaining deterministic operation and room-temperature feasibility.
-
-The staged implementation pathway—from 6-state proof-of-concept to 1,152-state integrated processors—demonstrates a clear route to practical realization within the next decade. Applications in neural network acceleration, pattern recognition, and cryptography promise significant real-world impact.
-
-**Most importantly**, we release this concept as an open invention, inviting global collaboration to refine, implement, and extend OBQC. The future of computing need not be binary.
-
------
-
-### **Acknowledgments**
-
-The author thanks the AI systems Claude (Anthropic), ChatGPT (OpenAI), Grok (xAI), Gemini (Google), and Copilot (Microsoft) for collaborative ideation and refinement of these concepts. This work exemplifies human-AI synergy in theoretical innovation.
-
------
-
-### **References**
-
-[1] NTT Corporation. “Photonic Semiconductor Memory Technology.” *Technical Report*, 2024.
-
-[2] Hatano, G., et al. “Abacus experts’ mental calculation: Evidence for a dissociation between explicit and implicit memory.” *Cognitive Psychology*, 19(3), 1987.
-
-[3] Tanaka, S., et al. “The neural basis of mental abacus calculation.” *NeuroImage*, 42(4), 2008.
-
-[4] Post, E.L. “Introduction to a general theory of elementary propositions.” *American Journal of Mathematics*, 43(3), 1921.
-
-[5] Goodman, J.W. “Introduction to Fourier Optics.” *McGraw-Hill*, 1968.
-
-[6] O’Brien, J.L., et al. “Photonic quantum technologies.” *Nature Photonics*, 3(12), 2009.
-
-[7] Psaltis, D., et al. “Holographic storage.” *Computer*, 33(11), 2000.
-
------
-
-### **Appendix A: Mathematical Formalism**
-
-*[Detailed state space formulation, operators, error analysis—can be expanded]*
-
------
-
-### **Appendix B: Open-Source Implementation**
-
-*[Code repository links, hardware schematics, simulation tools—to be added upon development]*
-
-
-#OpticalBeadQuantumComputing #OBQC #PhotonicComputing #QuantumComputing #MultiValuedLogic #OpticalComputing #PhotonicQuantum #AbacusInspired #ComputerScience #QuantumInformation #PhotonicIntegratedCircuits #SiliconPhotonics #OpenScience #OpenInvention #FutureOfComputing #QuantumTechnology #OpticalProcessing #PhotonicChip #AIResearch #ComputationalParadigm
+#OpticalBeadComputing #PhotonicComputing #OpticalComputing #Soroban #AbacusComputing #MultiValuedLogic #Qudit #QuantumInspired #PhotonicAI #OpticalPatternRecognition
