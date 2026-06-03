@@ -18,7 +18,9 @@ This directory contains a minimal Python simulator for the Optical Bead Computin
 | `electronic_binary_vs_scd.py` | **Comparison:** BCD vs SCD under random bit flips |
 | `photonic_binary_vs_obqc.py` | **Comparison:** Binary photonic vs multi-state optical bead under Gaussian noise |
 | `qudit_inspired_channel.py` | **Toy model:** M-level qudit-inspired channel (analytical, NOT quantum simulation) |
-| `run_comparisons.py` | Run all three comparison simulators in sequence |
+| `hybrid_quantum_support_energy.py` | **Toy energy model:** OBQC auxiliary layer vs baseline hybrid quantum support system (E_cryo unchanged) |
+| `pattern_vs_binary_operation_cost.py` | **Abstract cost model:** Sequential binary pipeline vs pattern-recognition pipeline |
+| `run_comparisons.py` | Run all comparison simulators in sequence |
 | `results/` | Directory for generated CSV output files |
 
 ---
@@ -327,15 +329,79 @@ imperfections not captured here.
 
 ---
 
+## Hybrid Quantum Support Energy Model
+
+```bash
+python hybrid_quantum_support_energy.py
+```
+
+This toy model estimates whether an OBQC-like auxiliary layer could reduce
+support-system energy in hybrid quantum architectures across five scenarios:
+conservative, moderate, optimistic, high_OBQC_overhead, and no_benefit.
+
+**Important:** This model keeps E_cryo (cryogenic cooling energy) unchanged
+by default. It does NOT claim that OBQC eliminates cryogenic cooling requirements.
+Superconducting qubits require millikelvin temperatures regardless of what the
+auxiliary layer does.
+
+The model evaluates whether:
+
+```
+E_OBQC_layer < sum_i (1 - alpha_i) * E_i_baseline
+```
+
+If this holds, the OBQC layer produces a net auxiliary energy reduction.
+If not (high_OBQC_overhead, no_benefit), the layer costs more than it saves.
+
+Output: console table + `results/hybrid_quantum_support_energy.csv`
+
+See [docs/hybrid-quantum-support-layer.md](../docs/hybrid-quantum-support-layer.md)
+for full context, architecture discussion, and falsifiable research questions.
+
+---
+
+## Pattern Recognition vs Binary Operation Cost
+
+```bash
+python pattern_vs_binary_operation_cost.py
+```
+
+This abstract cost model compares a sequential binary-style classification
+pipeline against a pattern-recognition pipeline under simplified, explicitly
+stated assumptions.
+
+Parameters swept:
+- workload_size: 1,000 / 10,000 / 100,000 / 1,000,000
+- pattern_reduction_factor: 0.2 / 0.4 / 0.6 / 0.8 (fraction of binary ops still required)
+- overhead_case: low / medium / high (optical extraction and detector cost)
+
+Pattern recognition achieves lower total cost (break_even = yes) only when:
+```
+overhead < (1 - reduction_factor) * binary_savings
+```
+
+For low overhead, break-even is reachable at modest reduction factors.
+For high overhead, large reduction factors and large workloads are needed.
+
+Output: console table + `results/pattern_vs_binary_operation_cost.csv`
+
+**This is an abstract cost model, not a hardware benchmark.**
+Results depend entirely on the assumed cost parameters.
+
+---
+
 ## Run All Comparisons
 
 ```bash
 python run_comparisons.py
-python run_comparisons.py --trials 2000   # override trial count for all simulators
+python run_comparisons.py --trials 2000   # override trial count for stochastic simulators
 ```
 
-Runs all three comparison simulators in sequence and reports the location of
+Runs all comparison simulators in sequence and reports the location of
 each generated CSV file. All outputs go to `results/`.
+
+The hybrid energy and operation-cost models are deterministic and do not
+use a `--trials` parameter.
 
 ---
 

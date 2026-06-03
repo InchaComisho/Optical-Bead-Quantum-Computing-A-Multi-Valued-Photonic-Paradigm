@@ -191,6 +191,37 @@ All simulations in this framework follow these rules:
 
 ---
 
+## Hybrid Quantum Support Comparison
+
+Two additional models extend the framework to hybrid quantum system auxiliary energy:
+
+### Hybrid Quantum Support Energy Model (`hybrid_quantum_support_energy.py`)
+
+This model compares support-layer energy assumptions across five scenarios, not quantum computational performance. It should be interpreted as a system-level what-if model.
+
+The model answers one question: under what alpha (reduction factor) assumptions and OBQC overhead does the inequality
+
+```
+E_OBQC_layer < sum_i (1 - alpha_i) * E_i_baseline
+```
+
+hold? If it holds, an OBQC auxiliary layer produces a net reduction in auxiliary energy. If not, the layer costs more than it saves.
+
+**Critical constraint preserved by the model:** E_cryo is kept unchanged by default. The model does not claim that OBQC eliminates cryogenic cooling. Even in the most optimistic scenario, cryogenic energy dominates total system energy. The model makes this visible by reporting `cryo_fraction_before` and `cryo_fraction_after` for each scenario.
+
+### Pattern vs Binary Operation Cost (`pattern_vs_binary_operation_cost.py`)
+
+This model compares abstract operation counts between a sequential binary classification pipeline and a pattern-recognition pipeline. It answers: at what combination of workload size, reduction factor, and overhead case does pattern recognition achieve lower total cost?
+
+The model is not a photonic hardware simulation. It is an abstract cost model under stated assumptions. It demonstrates that:
+- Pattern recognition has lower cost than binary pipelines for some (not all) parameter combinations
+- The threshold depends on the overhead case (low/medium/high)
+- Results are sensitive to the assumed cost parameters; changing assumptions changes results
+
+Both models follow the same fairness rules as all other simulators in this framework: stated assumptions, CSV output, no cherry-picked results, no winner declaration.
+
+---
+
 ## Limitations of This Framework
 
 - The photonic model is a geometric approximation, not a physical optics simulation

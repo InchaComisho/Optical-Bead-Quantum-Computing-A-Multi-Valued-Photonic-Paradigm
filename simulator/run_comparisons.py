@@ -44,6 +44,25 @@ SIMULATORS = [
         "description": "Compares noise models for open-air, sealed-air, sealed-liquid, "
                        "acrylic, glass/quartz, and fiber media.",
     },
+    {
+        "name": "Hybrid Quantum Support Energy Model",
+        "script": "hybrid_quantum_support_energy.py",
+        "csv": os.path.join(RESULTS_DIR, "hybrid_quantum_support_energy.csv"),
+        "description": (
+            "Toy energy model: OBQC auxiliary layer vs baseline hybrid quantum "
+            "support system. E_cryo is kept unchanged. Does NOT claim to eliminate "
+            "cryogenic cooling."
+        ),
+    },
+    {
+        "name": "Pattern vs Binary Operation Cost",
+        "script": "pattern_vs_binary_operation_cost.py",
+        "csv": os.path.join(RESULTS_DIR, "pattern_vs_binary_operation_cost.csv"),
+        "description": (
+            "Abstract operation-cost comparison: sequential binary pipeline vs "
+            "pattern-recognition pipeline under simplified assumptions."
+        ),
+    },
 ]
 
 
@@ -86,11 +105,13 @@ def main():
     print()
     print(f"  This runs {len(SIMULATORS)} comparison simulators:")
     for sim in SIMULATORS:
-        print(f"    - {sim['name']}: {sim['description']}")
+        print(f"    - {sim['name']}")
     print()
     print("  DISCLAIMER: These are simplified, model-based comparisons.")
     print("  They do NOT prove superiority of any encoding scheme.")
-    print("  See docs/comparative-simulation-framework.md for details.")
+    print("  They do NOT claim OBQC eliminates cryogenic cooling.")
+    print("  See docs/comparative-simulation-framework.md and")
+    print("  docs/hybrid-quantum-support-layer.md for full context.")
     print()
 
     os.makedirs(RESULTS_DIR, exist_ok=True)

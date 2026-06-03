@@ -21,7 +21,8 @@ The roadmap is organized around verifiable milestones, not speculative timelines
 | v0.3 | Extended noise model: drift, crosstalk, jitter | 🔲 Planned |
 | v0.4 | Visualization: confusion matrix, state space diagram, SER vs N plot | 🔲 Planned |
 | v0.5 | Phase 1 hardware specification document | 🔲 Planned |
-| v0.6 | Optical medium stabilization: compare air, liquid, solid, fiber paths | 🔲 Planned |
+| v0.6 | Optical medium stabilization: compare air, liquid, solid, fiber paths | ✅ Complete |
+| v0.7 | Hybrid quantum support layer: energy model, pattern-cost model, hybrid architecture | ✅ Complete |
 | v1.0 | Reproducible optical bead experiment with measured SER data | 🔲 Long-term |
 
 ---
@@ -161,6 +162,33 @@ All experimental procedures, hardware configuration, and measurement data must b
 - Glass / quartz and fiber achieve the lowest simulated SER at any M value
 - For Phase 1: use sealed air or liquid cell with wavelength + polarization only
 - For Phase 2+: use glass, quartz, or fiber when polarization or phase encoding is required
+
+---
+
+## v0.7 Hybrid Quantum Support Layer
+
+**Purpose:** Model OBQC as a potential auxiliary pattern-recognition layer for hybrid quantum computing systems, and define a falsifiable research framework for evaluating this hypothesis.
+
+**Entry criteria:** v0.6 optical medium stabilization framework complete.
+
+**Deliverables:**
+- `docs/hybrid-quantum-support-layer.md`: full conceptual and technical discussion of the OBQC hybrid quantum support hypothesis, including energy model, architecture proposals, and falsifiable research questions
+- `simulator/hybrid_quantum_support_energy.py`: toy energy model comparing baseline hybrid quantum support pipeline vs OBQC-assisted auxiliary pipeline across five scenarios
+- `simulator/pattern_vs_binary_operation_cost.py`: abstract operation-cost comparison of sequential binary processing vs pattern-recognition pipeline
+- Updated `README.md`: new Hybrid Quantum Support Layer section with role table and links
+- Updated `docs/limitations.md`: hybrid quantum support limitations subsection
+- Updated `docs/comparative-simulation-framework.md`: hybrid quantum support comparison section
+
+**Key claims to preserve:**
+- OBQC does not eliminate cryogenic cooling for superconducting qubits
+- OBQC does not claim quantum advantage
+- OBQC does not replace the quantum processor core
+- Net benefit of an OBQC auxiliary layer is conditional on E_OBQC_layer < auxiliary savings
+
+**Success metrics:**
+- Both new simulators run without errors and produce valid CSV output
+- The documentation clearly states what OBQC can and cannot reduce
+- The energy model makes the net-benefit condition explicit and falsifiable
 
 ---
 

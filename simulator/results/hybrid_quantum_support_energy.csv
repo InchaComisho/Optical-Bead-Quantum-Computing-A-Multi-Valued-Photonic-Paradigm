@@ -1,0 +1,6 @@
+scenario,description,baseline_total,obqc_total,total_savings,total_savings_percent,auxiliary_baseline,auxiliary_obqc,auxiliary_savings_percent,cryo_fraction_before,cryo_fraction_after,net_benefit,E_quantum_core,E_cryo,E_control_baseline,E_readout_baseline,E_processing_baseline,E_data_baseline,E_control_obqc,E_readout_obqc,E_processing_obqc,E_data_obqc,E_OBQC_layer,alpha_control,alpha_readout,alpha_processing,alpha_data
+conservative,Small auxiliary reductions; low OBQC overhead,211.0,209.5,1.5,0.71,110.0,108.5,1.36,47.39,47.73,yes,1.0,100.0,20.0,20.0,30.0,40.0,19.0,18.0,25.5,36.0,10.0,0.95,0.9,0.85,0.9
+moderate,Moderate auxiliary reductions; moderate overhead,211.0,192.5,18.5,8.77,110.0,91.5,16.82,47.39,51.95,yes,1.0,100.0,20.0,20.0,30.0,40.0,17.0,15.0,19.5,28.0,12.0,0.85,0.75,0.65,0.7
+optimistic,Significant auxiliary reductions; OBQC scales well,211.0,173.0,38.0,18.01,110.0,72.0,34.55,47.39,57.8,yes,1.0,100.0,20.0,20.0,30.0,40.0,14.0,11.0,12.0,20.0,15.0,0.7,0.55,0.4,0.5
+high_OBQC_overhead,Decent reductions but OBQC layer costs too much,211.0,214.5,-3.5,-1.66,110.0,113.5,-3.18,47.39,46.62,no,1.0,100.0,20.0,20.0,30.0,40.0,15.0,13.0,16.5,24.0,45.0,0.75,0.65,0.55,0.6
+no_benefit,OBQC provides no reduction but still has overhead,211.0,221.0,-10.0,-4.74,110.0,120.0,-9.09,47.39,45.25,no,1.0,100.0,20.0,20.0,30.0,40.0,20.0,20.0,30.0,40.0,10.0,1.0,1.0,1.0,1.0

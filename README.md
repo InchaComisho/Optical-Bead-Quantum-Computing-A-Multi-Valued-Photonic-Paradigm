@@ -23,7 +23,8 @@
 9. [Minimal Prototype Roadmap](#minimal-prototype-roadmap)
 10. [Optical Medium Stabilization](#optical-medium-stabilization)
 11. [Possible Applications](#possible-applications)
-12. [Sealed Liquid Optical Bead Medium](#sealed-liquid-optical-bead-medium)
+12. [Hybrid Quantum Support Layer](#hybrid-quantum-support-layer)
+13. [Sealed Liquid Optical Bead Medium](#sealed-liquid-optical-bead-medium)
 13. [Electronic Extension: Soroban-Coded Decimal Logic](#electronic-extension-soroban-coded-decimal-logic)
 14. [Comparative Simulations](#comparative-simulations-binary-bcd-scd-and-optical-beads)
 15. [What OBQC Is Not](#what-obqc-is-not)
@@ -340,6 +341,35 @@ The following applications are proposed as research directions. None are claimed
 | Qudit research platform | Testbed for high-dimensional quantum state encoding protocols | Quantum extension |
 
 **These applications require hardware implementation and experimental validation before any performance claims can be made.**
+
+---
+
+## Hybrid Quantum Support Layer
+
+See also: [docs/hybrid-quantum-support-layer.md](docs/hybrid-quantum-support-layer.md) | [simulator/hybrid_quantum_support_energy.py](simulator/hybrid_quantum_support_energy.py) | [simulator/pattern_vs_binary_operation_cost.py](simulator/pattern_vs_binary_operation_cost.py)
+
+OBQC is not claimed to replace superconducting quantum processors or to eliminate cryogenic cooling requirements. Superconducting qubits require millikelvin temperatures to operate, and no optical auxiliary layer changes this.
+
+However, OBQC may be explored as a potential low-energy pattern-recognition support layer for the surrounding infrastructure of hybrid quantum systems. Many near-term quantum computers are hybrid systems that combine a quantum processor with substantial room-temperature classical infrastructure including control electronics, readout discrimination, syndrome decoding, and post-processing. As systems scale, this auxiliary infrastructure may grow significantly.
+
+An OBQC-like optical pattern-recognition layer may potentially reduce:
+- Readout signal classification overhead (treating readout signals as noisy multi-dimensional patterns)
+- Data movement between readout electronics and classical decoders
+- High-dimensional multiplexing of I/O channels into the cryostat
+- Repeated binary operations for recurring pattern-matching tasks in error-candidate detection
+- Energy cost of selected classical post-processing workloads
+
+**The net benefit of such a layer is conditional.** It is useful only if the energy consumed by the optical layer is less than the energy saved in auxiliary processing. This condition is made explicit and falsifiable in the toy energy model.
+
+| Target | OBQC Role | Limitation |
+|---|---|---|
+| Superconducting quantum systems | Auxiliary readout / preprocessing layer | Does not remove cryogenic qubit cooling |
+| Photonic quantum systems | More natural optical-state support layer | Detector and loss constraints remain |
+| Classical post-processing | Pattern-based reduction of repeated workloads | Only useful if overhead is lower than saved computation |
+| Error-candidate detection | Fast recognition of repeated error patterns | Requires benchmark validation against digital decoders |
+| I/O multiplexing | High-dimensional optical encoding per channel | Integration and conversion overhead must be characterized |
+
+The toy energy model (`simulator/hybrid_quantum_support_energy.py`) evaluates the net-benefit condition across five scenarios (conservative, moderate, optimistic, high_OBQC_overhead, no_benefit). The pattern-cost model (`simulator/pattern_vs_binary_operation_cost.py`) identifies under what workload and overhead conditions pattern recognition achieves lower cost than sequential binary processing.
 
 ---
 
