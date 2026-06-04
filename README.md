@@ -8,6 +8,8 @@
 **License:** CC BY-SA 4.0  
 **Published:** 2026-06-03
 
+[日本語版 README_ja.md](README_ja.md)
+
 ---
 
 ## Table of Contents
