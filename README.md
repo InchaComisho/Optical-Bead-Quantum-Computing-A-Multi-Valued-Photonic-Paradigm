@@ -25,15 +25,16 @@
 11. [Possible Applications](#possible-applications)
 12. [Hybrid Quantum Support Layer](#hybrid-quantum-support-layer)
 13. [Sealed Liquid Optical Bead Medium](#sealed-liquid-optical-bead-medium)
-13. [Electronic Extension: Soroban-Coded Decimal Logic](#electronic-extension-soroban-coded-decimal-logic)
-14. [Comparative Simulations](#comparative-simulations-binary-bcd-scd-and-optical-beads)
-15. [What OBQC Is Not](#what-obqc-is-not)
-14. [Falsifiable Claims](#falsifiable-claims)
-15. [Limitations](#limitations)
-16. [Roadmap](#roadmap)
-17. [Repository Structure](#repository-structure)
-18. [Author](#author)
-19. [Keywords](#keywords)
+14. [SCD-CMOS and LED-CMOS Soroban Pattern Architecture](#scd-cmos-and-led-cmos-soroban-pattern-architecture)
+15. [Electronic Extension: Soroban-Coded Decimal Logic](#electronic-extension-soroban-coded-decimal-logic)
+16. [Comparative Simulations](#comparative-simulations-binary-bcd-scd-and-optical-beads)
+17. [What OBQC Is Not](#what-obqc-is-not)
+18. [Falsifiable Claims](#falsifiable-claims)
+19. [Limitations](#limitations)
+20. [Roadmap](#roadmap)
+21. [Repository Structure](#repository-structure)
+22. [Author](#author)
+23. [Keywords](#keywords)
 
 ---
 
@@ -418,6 +419,61 @@ This approach is a **classical optical prototype design choice**. It hosts macro
 
 ---
 
+## SCD-CMOS and LED-CMOS Soroban Pattern Architecture
+
+See also: [docs/scd-cmos-led-pattern-architecture.md](docs/scd-cmos-led-pattern-architecture.md) | [docs/scd-cmos-led-pattern-architecture_ja.md](docs/scd-cmos-led-pattern-architecture_ja.md) | Diagram: [diagrams/scd-cmos-led-architecture.md](diagrams/scd-cmos-led-architecture.md) | Simulator: [simulator/led_cmos_scd_pattern_demo.py](simulator/led_cmos_scd_pattern_demo.py)
+
+This section extends the soroban-to-OBQC analogy by connecting SCD electronic logic to LED optical patterns and CMOS image-sensor readout — creating a physical prototype path from electronic decimal patterns to Optical Bead Computing.
+
+### Core idea
+
+A soroban bead has two physical states: engaged or disengaged. A CMOS wire has two electrical states: High or Low. These are structurally identical. Therefore, a soroban digit can be mapped directly onto five CMOS signal lines (SCD: Soroban-Coded Decimal):
+
+```
+D = (H, L4, L3, L2, L1)
+digit = 5*H + count(L1, L2, L3, L4)
+```
+
+This same on/off structure can be extended to LEDs: each signal line drives one LED. A CMOS image sensor reads the spatial brightness pattern and decodes it back to a digit.
+
+### Representation layer stack
+
+| Layer | Representation | Role |
+|---|---|---|
+| Soroban | Bead up/down | Physical decimal pattern |
+| CMOS SCD | 5 High/Low lines | Electronic decimal pattern |
+| LED / RGB LED | Light position, color, intensity | Optical pattern generator |
+| CMOS sensor | Pixel array | Optical pattern reader |
+| OBQC | Multi-degree optical bead state | Generalized optical pattern computing |
+
+### What SCD-CMOS is and is not
+
+- **SCD uses 5 bits per decimal digit.** BCD uses 4 bits. SCD is not more compact than BCD.
+- SCD is useful for **structural pattern recognition and validity checking**, not for reducing storage size.
+- The lower four bits use a thermometer code. Any non-thermometer pattern is structurally invalid — 22 out of 32 possible patterns are detectable as errors without additional parity bits.
+- **Not all errors are detectable.** If the H bit flips, a valid digit may silently become a different valid digit (e.g., 0→5, 1→6). SCD is a structural validity code, not a complete error-correcting code.
+
+### LED-CMOS extension
+
+LED displays and CMOS sensors add optical degrees of freedom that do not exist in pure binary electronics: color/wavelength, brightness/intensity, spatial position, and temporal pulse patterns. This connects SCD to OBQC:
+
+- SCD uses structured electronic bead patterns across five binary lines
+- LED-CMOS extends those patterns into optical space (position, color, brightness)
+- OBQC generalizes bead patterns to multi-dimensional optical states (wavelength, polarization, phase, time-bin, spatial mode)
+
+### Toy simulator
+
+[simulator/led_cmos_scd_pattern_demo.py](simulator/led_cmos_scd_pattern_demo.py) demonstrates:
+- SCD digit encoding
+- Mapping to LED brightness patterns
+- Gaussian brightness noise injection
+- CMOS-like threshold readout
+- Classification as correct / detected error / silent error
+
+This is a toy brightness-noise model. It is not a physical optics simulation.
+
+---
+
 ## Electronic Extension: Soroban-Coded Decimal Logic
 
 See also: [docs/electronic-extension-soroban-decimal.md](docs/electronic-extension-soroban-decimal.md) | Simulator: [simulator/soroban_decimal.py](simulator/soroban_decimal.py)
@@ -581,6 +637,8 @@ Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/
 │   ├── optical-bead-state-model.md              ← State vector formalism and DOF model
 │   ├── deterministic-vs-quantum.md              ← Three-layer framework comparison
 │   ├── electronic-extension-soroban-decimal.md  ← SCD logic: 5-bit soroban decimal cell
+│   ├── scd-cmos-led-pattern-architecture.md     ← SCD-CMOS / LED-CMOS extension (this doc)
+│   ├── scd-cmos-led-pattern-architecture_ja.md  ← SCD-CMOS / LED-CMOS (Japanese version)
 │   ├── comparative-simulation-framework.md      ← Comparison framework and fairness rules
 │   ├── sealed-liquid-optical-bead-medium.md     ← Sealed liquid cell as optical channel
 │   ├── optical-medium-stabilization.md          ← All medium options: air, liquid, solid, fiber
@@ -598,6 +656,7 @@ Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/
 │   ├── qudit_inspired_channel.py      ← Toy qudit-inspired channel (NOT quantum sim)
 │   ├── liquid_medium_noise.py         ← Sealed liquid cell noise model
 │   ├── optical_medium_comparison.py   ← Stability comparison across all media
+│   ├── led_cmos_scd_pattern_demo.py   ← Toy LED-CMOS SCD readout demo
 │   ├── run_comparisons.py             ← Run all comparison simulators
 │   └── results/                       ← Generated CSV output files
 │
@@ -605,7 +664,8 @@ Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/
     ├── soroban-to-optical-beads.md    ← Conceptual analogy diagram (Mermaid)
     ├── optical-bead-state-space.md    ← State space visualization (Mermaid)
     ├── architecture.md                ← System architecture diagram (Mermaid)
-    └── optical-medium-options.md      ← Medium options: air, liquid, solid, fiber (Mermaid)
+    ├── optical-medium-options.md      ← Medium options: air, liquid, solid, fiber (Mermaid)
+    └── scd-cmos-led-architecture.md   ← SCD-CMOS / LED-CMOS architecture diagrams (Mermaid)
 ```
 
 ---

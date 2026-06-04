@@ -20,6 +20,7 @@ This directory contains a minimal Python simulator for the Optical Bead Computin
 | `qudit_inspired_channel.py` | **Toy model:** M-level qudit-inspired channel (analytical, NOT quantum simulation) |
 | `hybrid_quantum_support_energy.py` | **Toy energy model:** OBQC auxiliary layer vs baseline hybrid quantum support system (E_cryo unchanged) |
 | `pattern_vs_binary_operation_cost.py` | **Abstract cost model:** Sequential binary pipeline vs pattern-recognition pipeline |
+| `led_cmos_scd_pattern_demo.py` | **Toy model:** LED-CMOS SCD pattern readout (brightness noise, threshold, error classification) |
 | `run_comparisons.py` | Run all comparison simulators in sequence |
 | `results/` | Directory for generated CSV output files |
 
@@ -387,6 +388,39 @@ Output: console table + `results/pattern_vs_binary_operation_cost.csv`
 
 **This is an abstract cost model, not a hardware benchmark.**
 Results depend entirely on the assumed cost parameters.
+
+---
+
+## LED-CMOS SCD Pattern Demo
+
+```bash
+python led_cmos_scd_pattern_demo.py
+python led_cmos_scd_pattern_demo.py --trials 5000
+python led_cmos_scd_pattern_demo.py --sigma 0.15
+python led_cmos_scd_pattern_demo.py --sigma 0.30 --trials 2000
+```
+
+This toy demo maps SCD (Soroban-Coded Decimal) digits to simplified LED brightness
+patterns, reads them back with a CMOS-like threshold model, and measures correct,
+detected-error, and silent-error rates across all digits 0–9.
+
+What it demonstrates:
+- **SCD encoding:** each decimal digit is a 5-bit thermometer pattern (H + L1–L4)
+- **LED brightness mapping:** High=1.0 brightness, Low=0.0 brightness per signal line
+- **Gaussian noise injection:** models LED intensity variation and CMOS sensor noise
+- **Threshold readout:** CMOS-like threshold converts continuous brightness to High/Low
+- **Error classification:**
+  - `correct`: decoded pattern matches original digit
+  - `detected_error`: decoded pattern violates the thermometer constraint (structurally invalid)
+  - `silent_error`: decoded pattern is valid but maps to a different digit (e.g., 0→5 from H-bit flip)
+- **Sigma sweep:** shows how error rates change with noise level
+
+Output: console table + `results/led_cmos_scd_pattern_demo.csv`
+
+**TOY MODEL WARNING:** Noise parameters are Gaussian brightness perturbations, NOT
+measured physical optics values. Results depend on the stated sigma and threshold only.
+This is a conceptual demonstration of the SCD-CMOS / LED-CMOS architecture described
+in [docs/scd-cmos-led-pattern-architecture.md](../docs/scd-cmos-led-pattern-architecture.md).
 
 ---
 

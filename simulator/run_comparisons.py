@@ -63,6 +63,16 @@ SIMULATORS = [
             "pattern-recognition pipeline under simplified assumptions."
         ),
     },
+    {
+        "name": "LED-CMOS SCD Pattern Demo",
+        "script": "led_cmos_scd_pattern_demo.py",
+        "csv": os.path.join(RESULTS_DIR, "led_cmos_scd_pattern_demo.csv"),
+        "description": (
+            "Toy LED-CMOS readout demo: maps SCD digits to LED brightness patterns, "
+            "adds Gaussian noise, applies CMOS-like threshold, and measures correct, "
+            "detected-error, and silent-error rates. NOT a physical sensor simulation."
+        ),
+    },
 ]
 
 

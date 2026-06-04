@@ -1,0 +1,25 @@
+# TOY MODEL WARNING: This is a simplified brightness-noise model.,,,,,,,
+# It is NOT a physical sensor simulation.,,,,,,,
+# Results depend entirely on stated sigma and threshold assumptions.,,,,,,,
+
+section,digit,trials,sigma,threshold,correct,detected_error,silent_error,correct_rate,detected_rate,silent_rate
+per_digit,0,1000,,,964,20,16,0.9640,0.0200,0.0160
+per_digit,1,1000,,,974,11,15,0.9740,0.0110,0.0150
+per_digit,2,1000,,,977,15,8,0.9770,0.0150,0.0080
+per_digit,3,1000,,,974,12,14,0.9740,0.0120,0.0140
+per_digit,4,1000,,,979,14,7,0.9790,0.0140,0.0070
+per_digit,5,1000,,,969,21,10,0.9690,0.0210,0.0100
+per_digit,6,1000,,,974,10,16,0.9740,0.0100,0.0160
+per_digit,7,1000,,,963,19,18,0.9630,0.0190,0.0180
+per_digit,8,1000,,,963,17,20,0.9630,0.0170,0.0200
+per_digit,9,1000,,,970,15,15,0.9700,0.0150,0.0150
+
+section,sigma,avg_correct_rate,avg_detected_rate,avg_silent_rate,,,,,,
+sweep,0.050,1.0000,0.0000,0.0000,,,,,,
+sweep,0.100,1.0000,0.0000,0.0000,,,,,,
+sweep,0.150,0.9970,0.0010,0.0020,,,,,,
+sweep,0.200,0.9755,0.0105,0.0140,,,,,,
+sweep,0.250,0.9020,0.0505,0.0475,,,,,,
+sweep,0.300,0.7845,0.1145,0.1010,,,,,,
+sweep,0.350,0.6750,0.1695,0.1555,,,,,,
+sweep,0.400,0.5785,0.2280,0.1935,,,,,,

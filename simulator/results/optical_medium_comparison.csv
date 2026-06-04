@@ -1,0 +1,91 @@
+medium,M,D,effective_sigma,attenuation_loss,separability_margin,bits_per_symbol,trials,symbol_error_rate,throughput_proxy,dominant_noise_note,DOF_notes
+open_air,4,2,0.09487,0.0,1.0,2.0,500,0.0,2.0,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,8,2,0.09487,0.0,0.5,3.0,500,0.018,2.946,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,16,2,0.09487,0.0,0.3333,4.0,500,0.118,3.528,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,32,2,0.09487,0.0,0.2,5.0,500,0.398,3.01,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,64,2,0.09487,0.0,0.1429,6.0,500,0.628,2.232,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,4,4,0.09487,0.0,1.0,2.0,500,0.0,2.0,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,8,4,0.09487,0.0,1.0,3.0,500,0.0,3.0,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,16,4,0.09487,0.0,1.0,4.0,500,0.0,4.0,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,32,4,0.09487,0.0,0.5,5.0,500,0.012,4.94,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,64,4,0.09487,0.0,0.5,6.0,500,0.028,5.832,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,4,7,0.09487,0.0,1.0,2.0,500,0.0,2.0,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,8,7,0.09487,0.0,1.0,3.0,500,0.0,3.0,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,16,7,0.09487,0.0,1.0,4.0,500,0.0,4.0,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,32,7,0.09487,0.0,1.0,5.0,500,0.0,5.0,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+open_air,64,7,0.09487,0.0,1.0,6.0,500,0.0,6.0,"dust, humidity, alignment drift","wavelength, intensity only recommended"
+sealed_air,4,2,0.04301,0.0,1.0,2.0,500,0.0,2.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,8,2,0.04301,0.0,0.5,3.0,500,0.0,3.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,16,2,0.04301,0.0,0.3333,4.0,500,0.0,4.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,32,2,0.04301,0.0,0.2,5.0,500,0.026,4.87,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,64,2,0.04301,0.0,0.1429,6.0,500,0.166,5.004,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,4,4,0.04301,0.0,1.0,2.0,500,0.0,2.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,8,4,0.04301,0.0,1.0,3.0,500,0.0,3.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,16,4,0.04301,0.0,1.0,4.0,500,0.0,4.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,32,4,0.04301,0.0,0.5,5.0,500,0.0,5.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,64,4,0.04301,0.0,0.5,6.0,500,0.0,6.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,4,7,0.04301,0.0,1.0,2.0,500,0.0,2.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,8,7,0.04301,0.0,1.0,3.0,500,0.0,3.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,16,7,0.04301,0.0,1.0,4.0,500,0.0,4.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,32,7,0.04301,0.0,1.0,5.0,500,0.0,5.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_air,64,7,0.04301,0.0,1.0,6.0,500,0.0,6.0,"temperature drift, alignment",wavelength + polarization recommended
+sealed_liquid,4,2,0.05229,0.03,1.0,2.0,500,0.0,2.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,8,2,0.05229,0.03,0.5,3.0,500,0.0,3.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,16,2,0.05229,0.03,0.3333,4.0,500,0.0,4.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,32,2,0.05229,0.03,0.2,5.0,500,0.096,4.52,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,64,2,0.05229,0.03,0.1429,6.0,500,0.282,4.308,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,4,4,0.05229,0.03,1.0,2.0,500,0.0,2.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,8,4,0.05229,0.03,1.0,3.0,500,0.0,3.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,16,4,0.05229,0.03,1.0,4.0,500,0.0,4.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,32,4,0.05229,0.03,0.5,5.0,500,0.0,5.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,64,4,0.05229,0.03,0.5,6.0,500,0.0,6.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,4,7,0.05229,0.03,1.0,2.0,500,0.0,2.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,8,7,0.05229,0.03,1.0,3.0,500,0.0,3.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,16,7,0.05229,0.03,1.0,4.0,500,0.0,4.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,32,7,0.05229,0.03,1.0,5.0,500,0.0,5.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+sealed_liquid,64,7,0.05229,0.03,1.0,6.0,500,0.0,6.0,"thermal RI drift (critical for phase), bubble risk",wavelength + polarization; phase impractical at cm scale
+acrylic_block,4,2,0.05467,0.05,1.0,2.0,500,0.0,2.0,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,8,2,0.05467,0.05,0.5,3.0,500,0.0,3.0,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,16,2,0.05467,0.05,0.3333,4.0,500,0.006,3.976,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,32,2,0.05467,0.05,0.2,5.0,500,0.072,4.64,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,64,2,0.05467,0.05,0.1429,6.0,500,0.306,4.164,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,4,4,0.05467,0.05,1.0,2.0,500,0.0,2.0,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,8,4,0.05467,0.05,1.0,3.0,500,0.0,3.0,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,16,4,0.05467,0.05,1.0,4.0,500,0.0,4.0,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,32,4,0.05467,0.05,0.5,5.0,500,0.0,5.0,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,64,4,0.05467,0.05,0.5,6.0,500,0.0,6.0,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,4,7,0.05467,0.05,1.0,2.0,500,0.0,2.0,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,8,7,0.05467,0.05,1.0,3.0,500,0.0,3.0,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,16,7,0.05467,0.05,1.0,4.0,500,0.0,4.0,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,32,7,0.05467,0.05,1.0,5.0,500,0.0,5.0,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+acrylic_block,64,7,0.05467,0.05,1.0,6.0,500,0.0,6.0,"stress birefringence, thermal expansion, trapped bubbles","wavelength, intensity, spatial position only; polarization degraded"
+glass_quartz,4,2,0.02332,0.01,1.0,2.0,500,0.0,2.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,8,2,0.02332,0.01,0.5,3.0,500,0.0,3.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,16,2,0.02332,0.01,0.3333,4.0,500,0.0,4.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,32,2,0.02332,0.01,0.2,5.0,500,0.0,5.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,64,2,0.02332,0.01,0.1429,6.0,500,0.006,5.964,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,4,4,0.02332,0.01,1.0,2.0,500,0.0,2.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,8,4,0.02332,0.01,1.0,3.0,500,0.0,3.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,16,4,0.02332,0.01,1.0,4.0,500,0.0,4.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,32,4,0.02332,0.01,0.5,5.0,500,0.0,5.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,64,4,0.02332,0.01,0.5,6.0,500,0.0,6.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,4,7,0.02332,0.01,1.0,2.0,500,0.0,2.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,8,7,0.02332,0.01,1.0,3.0,500,0.0,3.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,16,7,0.02332,0.01,1.0,4.0,500,0.0,4.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,32,7,0.02332,0.01,1.0,5.0,500,0.0,5.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+glass_quartz,64,7,0.02332,0.01,1.0,6.0,500,0.0,6.0,"detector noise (dominant), low thermal drift",all DOFs including polarization and phase
+fiber_waveguide,4,2,0.02569,0.04,1.0,2.0,500,0.0,2.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,8,2,0.02569,0.04,0.5,3.0,500,0.0,3.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,16,2,0.02569,0.04,0.3333,4.0,500,0.0,4.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,32,2,0.02569,0.04,0.2,5.0,500,0.002,4.99,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,64,2,0.02569,0.04,0.1429,6.0,500,0.006,5.964,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,4,4,0.02569,0.04,1.0,2.0,500,0.0,2.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,8,4,0.02569,0.04,1.0,3.0,500,0.0,3.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,16,4,0.02569,0.04,1.0,4.0,500,0.0,4.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,32,4,0.02569,0.04,0.5,5.0,500,0.0,5.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,64,4,0.02569,0.04,0.5,6.0,500,0.0,6.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,4,7,0.02569,0.04,1.0,2.0,500,0.0,2.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,8,7,0.02569,0.04,1.0,3.0,500,0.0,3.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,16,7,0.02569,0.04,1.0,4.0,500,0.0,4.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,32,7,0.02569,0.04,1.0,5.0,500,0.0,5.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
+fiber_waveguide,64,7,0.02569,0.04,1.0,6.0,500,0.0,6.0,"coupling loss, bend birefringence",wavelength + phase (SMF); wavelength + polarization (PMF)
