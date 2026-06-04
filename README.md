@@ -561,7 +561,7 @@ This repository includes a set of comparison simulators that measure trade-offs 
 - [simulator/electronic_binary_vs_scd.py](simulator/electronic_binary_vs_scd.py) — BCD vs SCD bit-flip comparison
 - [simulator/photonic_binary_vs_obqc.py](simulator/photonic_binary_vs_obqc.py) — Binary vs optical bead photonic comparison
 - [simulator/qudit_inspired_channel.py](simulator/qudit_inspired_channel.py) — Toy qudit-inspired channel (analytical, NOT quantum simulation)
-- [simulator/run_comparisons.py](simulator/run_comparisons.py) — Run all three at once
+- [simulator/run_comparisons.py](simulator/run_comparisons.py) — Run all seven comparison simulators
 - [docs/comparative-simulation-framework.md](docs/comparative-simulation-framework.md) — Framework documentation and fairness rules
 
 ### Key caveats
