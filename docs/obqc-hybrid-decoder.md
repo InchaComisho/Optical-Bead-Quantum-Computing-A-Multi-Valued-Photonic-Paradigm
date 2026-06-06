@@ -10,8 +10,9 @@ The model combines:
 - 10 soroban-coded decimal digit patterns: **0–9**
 - 1 active-channel marker bit: **M**
 - nearest-neighbor decoding under noise
+- confidence, margin, error-risk, and reject logic
 
-The goal is to test whether a 40-state symbolic alphabet can be decoded under simplified optical sensor noise.
+The goal is to test whether a 40-state symbolic alphabet can be decoded under simplified optical sensor noise, and whether uncertain readings can be rejected before a false output is emitted.
 
 ---
 
@@ -113,10 +114,84 @@ The simulator also tracks:
 - best distance
 - second-best distance
 - margin between nearest and second-nearest templates
-- accuracy
-- error rate
+- confidence score
+- error-risk score
+- accepted accuracy
+- false accept rate
 - reject rate
+- calibration request rate
 - confusion matrix
+
+---
+
+## Layer 5: Correction and Verification Safeguard
+
+The correction and verification layer avoids forced decoding when the optical reading is ambiguous.
+
+In simple terms:
+
+```text
+If the signal is clear, accept and decode.
+If the signal is ambiguous, reject and request calibration or re-measurement.
+```
+
+The simulator uses these safeguards:
+
+- `margin_threshold`: reject if the best and second-best candidates are too close.
+- `reject_threshold`: reject if the closest template is still too far away.
+- `confidence_threshold`: reject if the confidence proxy is too low.
+- `error_risk_threshold`: reject if the error-risk proxy is too high.
+
+A rejected signal is not treated as a successful output. It is treated as a request for recalibration, re-measurement, larger sensing area, stronger signal margin, better shielding, or stricter decoding conditions.
+
+---
+
+## Confidence and error risk
+
+The simulator estimates confidence from the two nearest distances.
+
+This is not a calibrated physical probability.
+
+It is a bounded confidence proxy:
+
+```text
+confidence = softmax(-best_distance, -second_best_distance)
+error_risk = 1 - confidence
+```
+
+Interpretation:
+
+- If the best state is much closer than the second-best state, confidence rises.
+- If the best and second-best states are close, confidence falls.
+- Low confidence does not prove the answer is wrong.
+- High confidence does not prove the answer is correct.
+
+This is a decision-support metric for rejection, not a guarantee.
+
+---
+
+## False accept rate
+
+The important safety metric is not only total accuracy.
+
+The key safety metric is:
+
+```text
+false_accept_rate = accepted but wrong outputs / total trials
+```
+
+This measures cases where the safeguard failed to reject an incorrect output.
+
+The simulator also reports:
+
+```text
+false_accept_rate_of_accepted = accepted but wrong outputs / accepted outputs
+```
+
+This distinguishes two different problems:
+
+- Too many rejects: safe but inefficient.
+- Too many false accepts: unsafe because wrong outputs pass through.
 
 ---
 
@@ -131,6 +206,8 @@ The simulator is intentionally simplified, but it includes first-stage stress-te
 - optional ADC-like quantization
 - reject threshold
 - nearest-neighbor margin threshold
+- confidence threshold
+- error-risk threshold
 
 These parameters are not a substitute for real CMOS/LED measurement.
 
@@ -146,6 +223,25 @@ Single run:
 python simulator/obqc_hybrid_decoder.py --noise 0.05 --iterations 10000
 ```
 
+With a margin safeguard:
+
+```bash
+python simulator/obqc_hybrid_decoder.py \
+  --noise 0.12 \
+  --margin-threshold 0.40 \
+  --iterations 10000
+```
+
+With confidence and error-risk safeguards:
+
+```bash
+python simulator/obqc_hybrid_decoder.py \
+  --noise 0.12 \
+  --confidence-threshold 0.80 \
+  --error-risk-threshold 0.20 \
+  --iterations 10000
+```
+
 Noise sweep:
 
 ```bash
@@ -154,6 +250,7 @@ python simulator/obqc_hybrid_decoder.py \
   --noise 0.30 \
   --sweep-steps 31 \
   --iterations 10000 \
+  --margin-threshold 0.40 \
   --csv simulator/results/obqc_hybrid_decoder_sweep.csv
 ```
 
@@ -177,22 +274,30 @@ Example output:
 ```text
 OBQC / SCD Hybrid Decoder Simulation
 -------------------------------------
-Noise level:        0.0500
-Iterations:         10000
-Accuracy:           100.0000%
-Error rate:         0.0000%
-Reject rate:        0.0000%
-Mean margin:        ...
-Minimum margin:     ...
-Mean best distance: ...
-Note: observed zero errors in this finite run does not prove true zero error.
+Noise level:                  0.1200
+Iterations:                   10000
+Accepted count:               ...
+Rejected count:               ...
+Correct accepted count:       ...
+False accepted count:         ...
+Correct output rate / total:  ...
+Accepted accuracy:            ...
+False accept rate / total:    ...
+False accept rate / accepted: ...
+Reject rate:                  ...
+Calibration request rate:     ...
+Mean margin:                  ...
+Minimum margin:               ...
+Mean confidence:              ...
+Mean error risk:              ...
 ```
 
 Important interpretation:
 
-- Observed 0% error in a finite simulation run does not prove true zero error.
-- Nearest-neighbor decoding can work well under idealized conditions.
-- Real hardware must test crosstalk, temperature drift, calibration instability, detector saturation, shot noise, read noise, dark current, position misalignment, aging, and optical path variation.
+- Observed 0% false accepts in a finite simulation run does not prove true zero false-accept risk.
+- A high reject rate may mean the system is safe but inefficient.
+- A low reject rate with many false accepts means the threshold is too permissive.
+- Hardware validation must include crosstalk, temperature drift, calibration instability, detector saturation, shot noise, read noise, dark current, position misalignment, aging, and optical path variation.
 
 ---
 
@@ -204,6 +309,7 @@ This simulation supports the following limited claims:
 2. Nearest-neighbor decoding can be tested under configurable noise.
 3. The decoder can measure where error begins to increase as noise rises.
 4. The margin between nearest and second-nearest templates can be used as a rejection or confidence metric.
+5. A correction layer can trade throughput for safety by rejecting ambiguous readings.
 
 ---
 
@@ -214,6 +320,7 @@ This simulation does not prove:
 - hardware feasibility,
 - quantum advantage,
 - zero error in physical systems,
+- zero false-accept risk,
 - universal superiority over binary encoding,
 - CMOS/LED manufacturing readiness,
 - reliable operation under real environmental conditions,
@@ -242,11 +349,11 @@ It is a Phase 2 software model for testing a corrected symbolic mapping and deco
 
 Use this wording:
 
-> Under simplified simulation assumptions, the marker-bit RGBW × SCD model can decode a structurally unique 40-state alphabet using nearest-neighbor classification. Hardware validation is required before making performance claims.
+> Under simplified simulation assumptions, the marker-bit RGBW × SCD model can decode a structurally unique 40-state alphabet using nearest-neighbor classification. The correction layer can reject ambiguous readings, but hardware validation is required before making performance or safety claims.
 
 Avoid this wording:
 
-> This proves perfect 40-state optical decoding.
+> This proves perfect 40-state optical decoding or complete prevention of false outputs.
 
 ---
 
