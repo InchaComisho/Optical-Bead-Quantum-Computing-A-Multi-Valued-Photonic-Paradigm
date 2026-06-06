@@ -534,6 +534,40 @@ All three share the same structural principle: a value is a **multi-component pa
 
 ---
 
+## Comparative Energy-Latency Simulation
+
+See also: [docs/pattern-vs-binary-flash-emulator.md](docs/pattern-vs-binary-flash-emulator.md) | Simulator: [simulator/pattern_vs_binary_flash_emulator.py](simulator/pattern_vs_binary_flash_emulator.py)
+
+A conceptual emulator that compares SCD / RGB-white optical bead pattern processing against binary sequential search and binary indexed lookup for a 40-symbol classification task.
+
+**Important framing:** all values are **relative energy units under configurable assumptions**, not measured hardware power. No quantum advantage is claimed. No guaranteed superiority over binary computers is claimed.
+
+### What is compared
+
+| Method | Description | Latency (steps) |
+|---|---|---|
+| Binary sequential | 6-bit search, ~20 iterations average | ~140 |
+| Binary indexed lookup | O(1) direct lookup (optimized baseline) | 2 |
+| Optical SCD / RGB-white | Parallel 9-channel readout + threshold + validity | 3 |
+
+### Key results (default parameters)
+
+- Optical pattern processing uses significantly less relative energy than naive sequential binary search under moderate assumptions.
+- The comparison against optimized binary indexed lookup is parameter-dependent: optical wins under low LED/CMOS cost assumptions, binary wins under high optical overhead.
+- SCD thermometer coding provides built-in error detection: invalid bead patterns are flagged without extra parity bits.
+- A sensitivity analysis with five scenarios (optimistic, moderate, conservative, high CMOS overhead, no-benefit) is included to show when each approach is favorable.
+
+### How to run
+
+```
+python simulator/pattern_vs_binary_flash_emulator.py
+python simulator/pattern_vs_binary_flash_emulator.py --trials 5000 --sigma 0.05
+```
+
+Results: CSV at `simulator/results/pattern_vs_binary_flash_emulator.csv`, optional PNG plots.
+
+---
+
 ## What OBQC Is Not
 
 In the interest of credibility, the following clarifications are important:
@@ -564,7 +598,9 @@ This repository includes a set of comparison simulators that measure trade-offs 
 - [simulator/photonic_binary_vs_obqc.py](simulator/photonic_binary_vs_obqc.py) — Binary vs optical bead photonic comparison
 - [simulator/qudit_inspired_channel.py](simulator/qudit_inspired_channel.py) — Toy qudit-inspired channel (analytical, NOT quantum simulation)
 - [simulator/run_comparisons.py](simulator/run_comparisons.py) — Run all seven comparison simulators
+- [simulator/pattern_vs_binary_flash_emulator.py](simulator/pattern_vs_binary_flash_emulator.py) — SCD/RGB-white pattern vs binary: energy-latency model (conceptual, relative units)
 - [docs/comparative-simulation-framework.md](docs/comparative-simulation-framework.md) — Framework documentation and fairness rules
+- [docs/pattern-vs-binary-flash-emulator.md](docs/pattern-vs-binary-flash-emulator.md) — Flash emulator: framing, assumptions, falsifiability, limitations
 
 ### Key caveats
 
@@ -645,7 +681,8 @@ Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/
 │   ├── sealed-liquid-optical-bead-medium.md     ← Sealed liquid cell as optical channel
 │   ├── optical-medium-stabilization.md          ← All medium options: air, liquid, solid, fiber
 │   ├── limitations.md                           ← Noise, crosstalk, scalability limitations
-│   └── roadmap.md                               ← Detailed prototype roadmap
+│   ├── roadmap.md                               ← Detailed prototype roadmap
+│   └── pattern-vs-binary-flash-emulator.md      ← Conceptual energy-latency model doc
 │
 ├── simulator/
 │   ├── README.md                      ← Simulator usage guide
@@ -660,6 +697,7 @@ Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/
 │   ├── optical_medium_comparison.py   ← Stability comparison across all media
 │   ├── led_cmos_scd_pattern_demo.py   ← Toy LED-CMOS SCD readout demo
 │   ├── run_comparisons.py             ← Run all comparison simulators
+│   ├── pattern_vs_binary_flash_emulator.py ← SCD/RGB-white vs binary: energy-latency model
 │   └── results/                       ← Generated CSV output files
 │
 └── diagrams/
