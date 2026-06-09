@@ -369,6 +369,30 @@ https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Com
 
 ---
 
+## Related: Optical Quantum, Multi-Valued Photonic, and Quantum-Compatible Computing
+
+### Optical Quantum Computer / Optical Bead Quantum Computing
+
+- [Japanese NOTE article: 光量子コンピュータ：多値フォトニックパラダイム（光珠量子計算）](https://note.com/inchacomusho/n/ndd3f8a35af41)
+- [Optical Bead Quantum Computing — Japanese README](https://github.com/InchaComisho/Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/blob/main/README_ja.md)
+- [Optical Bead Quantum Computing — English README](https://github.com/InchaComisho/Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/blob/main/README.md)
+
+### Electronic–Optical Hybrid Quantum-Compatible Computing
+
+- [Japanese NOTE article: 電子・光ハイブリッド量子互換コンピューティング](https://note.com/inchacomusho/n/n110ab05dca7e)
+- [Electronic–Optical Hybrid Quantum-Compatible Computing — Japanese README](https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing/blob/main/README_ja.md)
+- [Electronic–Optical Hybrid Quantum-Compatible Computing — English README](https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing/blob/main/README.md)
+
+### Related Earlier Drafts and Architecture Documents
+
+- [Japanese academic draft: 光珠量子計算：多値フォトニックパラダイム](https://note.com/inchacomusho/n/nf2b969db3c43)
+- [Electronic–Optical Hybrid Quantum-Compatible Computing Architecture — Japanese README](https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing-Architecture/blob/main/README_ja.md)
+- [Electronic-Optical Hybrid Quantum-Compatible Computing Architecture — English README](https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing-Architecture/blob/main/README.md)
+- [Optical Bead Computing — Japanese README](https://github.com/InchaComisho/Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/blob/main/README_ja.md)
+- [Optical Bead Computing — GitHub Repository](https://github.com/InchaComisho/Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm)
+
+---
+
 ## Author
 
 **Master / inchacomisho / inchacomusho**

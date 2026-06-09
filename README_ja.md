@@ -369,6 +369,30 @@ https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Com
 
 ---
 
+## 関連：光量子・多値フォトニック・量子互換コンピューティング
+
+### 光量子コンピュータ / 光珠量子計算
+
+- [光量子コンピュータ：多値フォトニックパラダイム（光珠量子計算） — NOTE](https://note.com/inchacomusho/n/ndd3f8a35af41)
+- [光量子コンピュータ：多値フォトニックパラダイム（光珠量子計算） — GitHub 日本語版](https://github.com/InchaComisho/Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/blob/main/README_ja.md)
+- [Optical Bead Quantum Computing — GitHub English](https://github.com/InchaComisho/Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/blob/main/README.md)
+
+### 電子・光ハイブリッド量子互換コンピューティング
+
+- [電子・光ハイブリッド量子互換コンピューティング — NOTE](https://note.com/inchacomusho/n/n110ab05dca7e)
+- [電子・光ハイブリッド量子互換コンピューティング — GitHub 日本語版](https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing/blob/main/README_ja.md)
+- [Electronic–Optical Hybrid Quantum-Compatible Computing — GitHub English](https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing/blob/main/README.md)
+
+### 関連する初期構想・学術草案
+
+- [光珠量子計算：多値フォトニックパラダイム（日本語版学術論文） — NOTE](https://note.com/inchacomusho/n/nf2b969db3c43)
+- [電子・光ハイブリッド量子互換コンピューティング構想 — GitHub 日本語版](https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing-Architecture/blob/main/README_ja.md)
+- [Electronic-Optical Hybrid Quantum-Compatible Computing Architecture — GitHub English](https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing-Architecture/blob/main/README.md)
+- [光学ビードコンピューティング — GitHub 日本語版](https://github.com/InchaComisho/Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/blob/main/README_ja.md)
+- [Optical Bead Computing — GitHub](https://github.com/InchaComisho/Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm)
+
+---
+
 ## 著者
 
 **マスター / inchacomisho / inchacomusho**
