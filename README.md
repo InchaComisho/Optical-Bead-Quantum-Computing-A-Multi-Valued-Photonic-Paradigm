@@ -360,12 +360,19 @@ The purpose is to make the idea visible, searchable, citable, testable, and open
 
 ---
 
-## Related Repository
+## Related Links
 
-For the broader electronic-optical hybrid system architecture and quantum-compatible roadmap, see:
+### Foundational and Transitional Architectures
 
-**Electronic-Optical Hybrid Quantum-Compatible Computing Architecture**  
-https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing-Architecture
+- [Computer Paradigm Shift](https://note.com/inchacomusho/n/n3122fccd16e6)
+- [Abacus Decimal Computing Paradigm](https://github.com/InchaComisho/Abacus-Decimal-Computing-Paradigm)
+- [Abacus Decimal Computing Paradigm - English README](https://github.com/InchaComisho/Abacus-Decimal-Computing-Paradigm/blob/main/README.md)
+- [Electronic–Optical Hybrid Quantum-Compatible Computing](https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing/blob/main/README.md)
+- [Electronic–Optical Hybrid Quantum-Compatible Computing Architecture](https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing-Architecture/blob/main/README.md)
+
+### Related Japanese Article
+
+- [光珠量子計算：多値フォトニックパラダイム（日本語版学術論文）](https://note.com/inchacomusho/n/nf2b969db3c43)
 
 ---
 

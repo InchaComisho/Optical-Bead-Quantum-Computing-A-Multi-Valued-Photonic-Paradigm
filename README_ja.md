@@ -360,12 +360,23 @@ https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Com
 
 ---
 
-## 関連リポジトリ
+## 関連リンク / Related Links
 
-より広い電子・光ハイブリッドシステムアーキテクチャと量子互換ロードマップについては、次を参照してください。
+### 前段階・接続基盤
 
-**電子・光ハイブリッド量子互換コンピューティング構想**  
-https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing-Architecture
+- [コンピュータのパラダイムシフト](https://note.com/inchacomusho/n/n3122fccd16e6)
+- [Abacus Decimal Computing Paradigm](https://github.com/InchaComisho/Abacus-Decimal-Computing-Paradigm)
+- [Abacus Decimal Computing Paradigm - 日本語版](https://github.com/InchaComisho/Abacus-Decimal-Computing-Paradigm/blob/main/README_ja.md)
+- [電子・光ハイブリッド量子互換コンピューティング](https://note.com/inchacomusho/n/n110ab05dca7e)
+
+### 関連リポジトリ
+
+- [電子・光ハイブリッド量子互換コンピューティング](https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing/blob/main/README_ja.md)
+- [電子・光ハイブリッド量子互換コンピューティング構想](https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Computing-Architecture/blob/main/README_ja.md)
+
+### 関連NOTE
+
+- [光珠量子計算：多値フォトニックパラダイム（日本語版学術論文）](https://note.com/inchacomusho/n/nf2b969db3c43)
 
 ---
 
