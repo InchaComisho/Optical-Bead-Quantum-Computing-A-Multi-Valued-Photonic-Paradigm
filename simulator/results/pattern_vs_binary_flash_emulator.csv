@@ -1,0 +1,11 @@
+SECTION,main_results
+seq_method,seq_n_trials,seq_bit_comparisons_mean,seq_memory_reads_mean,seq_control_steps_mean,seq_active_beads_mean,seq_cmos_reads_mean,seq_threshold_compares_mean,seq_validity_checks_mean,seq_energy_mean,seq_latency_mean,seq_detected_error_rate,seq_silent_error_rate,seq_any_error_rate,idx_method,idx_n_trials,idx_bit_comparisons_mean,idx_memory_reads_mean,idx_control_steps_mean,idx_active_beads_mean,idx_cmos_reads_mean,idx_threshold_compares_mean,idx_validity_checks_mean,idx_energy_mean,idx_latency_mean,idx_detected_error_rate,idx_silent_error_rate,idx_any_error_rate,opt_method,opt_n_trials,opt_bit_comparisons_mean,opt_memory_reads_mean,opt_control_steps_mean,opt_active_beads_mean,opt_cmos_reads_mean,opt_threshold_compares_mean,opt_validity_checks_mean,opt_energy_mean,opt_latency_mean,opt_detected_error_rate,opt_silent_error_rate,opt_any_error_rate
+binary_sequential,10000,120.0,20.0,20.0,0.0,0.0,0.0,0.0,170.0,140.0,0.0,0.0,0.0,binary_indexed,10000,6.0,1.0,1.0,0.0,0.0,0.0,0.0,8.5,2.0,0.0,0.0,0.0,optical_scd,10000,0.0,0.0,0.0,3.5,9.0,9.0,1.0,16.549999999999205,3.0,0.0,0.0,0.0
+
+SECTION,sensitivity_analysis
+scenario,label,opt_energy,seq_energy,idx_energy,vs_seq_pct,vs_idx_pct,error_rate,favorable
+optimistic_optical,Optimistic optical (low overhead),8.4,170.0,8.5,95.05882352941177,1.17647058823529,0.0,optical
+moderate_optical,Moderate optical (default params),16.55,170.0,8.5,90.26470588235294,-94.70588235294119,0.0,binary_indexed
+conservative_optical,Conservative optical (higher overhead),30.45,170.0,8.5,82.08823529411765,-258.235294117647,0.0,binary_indexed
+high_cmos_read,High CMOS read overhead,36.35,170.0,8.5,78.61764705882354,-327.64705882352945,0.0,binary_indexed
+no_benefit,No-benefit case (high cost + high noise),70.0,170.0,8.5,58.82352941176471,-723.5294117647059,0.012,binary_indexed
