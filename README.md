@@ -6,7 +6,7 @@
 **Repository:** `Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm`  
 **Status:** Conceptual framework / early-stage research  
 **Primary focus:** Deterministic optical pattern computing, multi-valued photonic encoding, RGBW/SCD optical-symbol decoding  
-**License:** CC BY-SA 4.0  
+**License:** CC BY 4.0  
 **Published:** 2026-06-03  
 **Japanese README:** [README_ja.md](README_ja.md)
 
@@ -419,7 +419,7 @@ The purpose is to make the idea visible, searchable, citable, testable, and open
 
 ## License
 
-**CC BY-SA 4.0** — Creative Commons Attribution-ShareAlike 4.0 International
+**CC BY 4.0** — Creative Commons Attribution 4.0 International
 
 You are free to share and adapt this material for any purpose, provided appropriate credit is given and derivative works are distributed under the same license.
 

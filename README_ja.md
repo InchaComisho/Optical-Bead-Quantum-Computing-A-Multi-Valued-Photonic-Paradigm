@@ -6,7 +6,7 @@
 **リポジトリ:** `Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm`  
 **ステータス:** 概念的フレームワーク / 初期段階研究  
 **主な焦点:** 決定論的光パターン計算、多値フォトニック符号化、RGBW/SCD光シンボル復号  
-**ライセンス:** CC BY-SA 4.0  
+**ライセンス:** CC BY 4.0  
 **公開日:** 2026-06-03  
 **English README:** [README.md](README.md)
 
@@ -423,7 +423,7 @@ https://github.com/InchaComisho/Electronic-Optical-Hybrid-Quantum-Compatible-Com
 
 ## ライセンス
 
-**CC BY-SA 4.0** — Creative Commons Attribution-ShareAlike 4.0 International
+**CC BY 4.0** — Creative Commons Attribution 4.0 International
 
 適切なクレジットを表示し、同じライセンスで派生物を配布する限り、この資料は自由に共有・改変できます。
 

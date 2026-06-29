@@ -2,7 +2,7 @@
 
 **Repository:** `Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm`
 **Status:** Conceptual extension / early-stage framework
-**License:** CC BY-SA 4.0
+**License:** CC BY 4.0
 
 ---
 
@@ -298,3 +298,13 @@ SCD-CMOS is a structured decimal pattern layer. LED-CMOS is its optical interfac
 - [simulator/led_cmos_scd_pattern_demo.py](../simulator/led_cmos_scd_pattern_demo.py) — toy LED-CMOS readout simulator
 - [diagrams/scd-cmos-led-architecture.md](../diagrams/scd-cmos-led-architecture.md) — architecture diagrams
 - [README.md](../README.md) — repository overview
+
+---
+
+## Author
+
+Master / inchacomusho / InchaComisho
+
+An independent Japanese concept designer, observer, proposer, AI tuner, and definer of Artificial Wisdom.  
+Founder and advocate of the academic framework of Natural Complementary Science.  
+Publicly active in natural-law philosophy, planetary circulation restoration, and co-creation with AI.
