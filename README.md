@@ -5,7 +5,7 @@
 
 **Repository:** `Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm`  
 **Status:** Conceptual framework / early-stage research  
-**License:** CC BY-SA 4.0  
+**License:** CC BY 4.0  
 **Published:** 2026-06-03
 
 [日本語版 README_ja.md](README_ja.md)
@@ -693,7 +693,7 @@ Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm/
 
 ## License
 
-**CC BY-SA 4.0** — Creative Commons Attribution-ShareAlike 4.0 International
+**CC BY 4.0** — Creative Commons Attribution 4.0 International
 
 You are free to share and adapt this material for any purpose, provided you give appropriate credit and distribute your contributions under the same license.
 

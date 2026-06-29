@@ -2,7 +2,7 @@
 
 **Repository:** `Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm`
 **Status:** Conceptual / early-stage framework
-**License:** CC BY-SA 4.0
+**License:** CC BY 4.0
 
 See also: [docs/scd-cmos-led-pattern-architecture.md](../docs/scd-cmos-led-pattern-architecture.md)
 
@@ -167,3 +167,13 @@ flowchart LR
 - [docs/scd-cmos-led-pattern-architecture_ja.md](../docs/scd-cmos-led-pattern-architecture_ja.md) — Japanese version
 - [simulator/led_cmos_scd_pattern_demo.py](../simulator/led_cmos_scd_pattern_demo.py) — toy LED-CMOS simulator
 - [diagrams/soroban-to-optical-beads.md](soroban-to-optical-beads.md) — soroban-to-OBQC conceptual diagram
+
+---
+
+## Author
+
+Master / inchacomusho / InchaComisho
+
+An independent Japanese concept designer, observer, proposer, AI tuner, and definer of Artificial Wisdom.  
+Founder and advocate of the academic framework of Natural Complementary Science.  
+Publicly active in natural-law philosophy, planetary circulation restoration, and co-creation with AI.
