@@ -1,4 +1,7 @@
 # Optical Bead Computing
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/M6J122N2K2)
+
 ## A Soroban-Inspired Multi-Valued Photonic Computing Paradigm
 
 > **One-sentence definition:** Optical Bead Computing is a soroban-inspired, multi-valued photonic computing framework that encodes information as optical bead patterns using wavelength, polarization, phase, time-bin structure, pulse width, spatial mode, RGBW/SCD patterns, and other distinguishable degrees of freedom of light.
