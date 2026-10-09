@@ -1,5 +1,7 @@
 # SCD-CMOS and LED-CMOS Soroban Pattern Architecture
 
+[日本語版はこちら / Japanese version](scd-cmos-led-pattern-architecture_ja.md)
+
 **Repository:** `Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm`
 **Status:** Conceptual extension / early-stage framework
 **License:** CC BY 4.0
