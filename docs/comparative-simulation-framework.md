@@ -1,5 +1,7 @@
 # Comparative Simulation Framework
 
+[日本語版はこちら / Japanese version](comparative-simulation-framework_ja.md)
+
 **Part of:** [Optical Bead Computing](../README.md)
 
 ---

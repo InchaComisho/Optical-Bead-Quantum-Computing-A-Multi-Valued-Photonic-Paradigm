@@ -6,7 +6,7 @@
 
 > **一文定義：** 光学ビードコンピューティング（Optical Bead Computing / OBQC）は、そろばんの珠配置に着想を得て、波長、偏光、位相、時間ビン、パルス幅、空間モード、RGBW/SCDパターンなど、光の識別可能な自由度を用いて情報を光学ビードパターンとして符号化する、多値フォトニック情報処理フレームワークです。
 
-[English README](README.md)
+[English README](README_ja.md)
 
 **リポジトリ:** `Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm`
 **ステータス:** 概念的フレームワーク / 初期段階研究
@@ -17,7 +17,7 @@
 **主な焦点:** 決定論的光パターン計算、多値フォトニック符号化、RGBW/SCD光シンボル復号  
 **ライセンス:** CC BY 4.0  
 **公開日:** 2026-06-03  
-**English README:** [README.md](README.md)
+**English README:** [README.md](README_ja.md)
 
 ---
 

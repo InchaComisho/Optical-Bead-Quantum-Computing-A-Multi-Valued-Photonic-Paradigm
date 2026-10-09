@@ -1,16 +1,16 @@
-# SCD-CMOS and LED-CMOS Architecture Diagrams
+# SCD-CMOSおよびLED-CMOSのアーキテクチャ図
 
-[日本語版はこちら / Japanese version](scd-cmos-led-architecture_ja.md)
+[English Version](scd-cmos-led-architecture.md)
 
-**Repository:** `Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm`
-**Status:** Conceptual / early-stage framework
-**License:** CC BY 4.0
+**リポジトリ：**`Optical-Bead-Quantum-Computing-A-Multi-Valued-Photonic-Paradigm`
+**ステータス：**概念的／初期段階のフレームワーク
+**ライセンス：**CC BY 4.0
 
-See also: [docs/scd-cmos-led-pattern-architecture.md](../docs/scd-cmos-led-pattern-architecture.md)
+関連：[docs/scd-cmos-led-pattern-architecture_ja.md](../docs/scd-cmos-led-pattern-architecture_ja.md)（図中のラベルは英語のままです。）
 
 ---
 
-## A. Soroban Bead State to CMOS Signal Lines
+## A. そろばんのビード状態からCMOS信号線へ
 
 ```mermaid
 flowchart LR
@@ -56,7 +56,7 @@ flowchart LR
 
 ---
 
-## B. CMOS SCD State to LED Optical Pattern and Back
+## B. CMOSのSCD状態からLEDの光パターンへ、そしてその逆
 
 ```mermaid
 flowchart LR
@@ -101,7 +101,7 @@ flowchart LR
 
 ---
 
-## C. Conceptual Stack: Soroban to Qudit Extension
+## C. 概念的なスタック：そろばんからクディット拡張まで
 
 ```mermaid
 flowchart TD
@@ -125,7 +125,7 @@ flowchart TD
 
 ---
 
-## D. SCD Error Classification
+## D. SCDの誤り分類
 
 ```mermaid
 flowchart TD
@@ -148,7 +148,7 @@ flowchart TD
 
 ---
 
-## E. LED-CMOS Brightness Noise Model (Toy)
+## E. LED-CMOSの輝度ノイズモデル（簡易モデル）
 
 ```mermaid
 flowchart LR
@@ -164,25 +164,25 @@ flowchart LR
 
 ---
 
-*See also:*
-- [docs/scd-cmos-led-pattern-architecture.md](../docs/scd-cmos-led-pattern-architecture.md) — full documentation
-- [docs/scd-cmos-led-pattern-architecture_ja.md](../docs/scd-cmos-led-pattern-architecture_ja.md) — Japanese version
-- [simulator/led_cmos_scd_pattern_demo.py](../simulator/led_cmos_scd_pattern_demo.py) — toy LED-CMOS simulator
-- [diagrams/soroban-to-optical-beads.md](soroban-to-optical-beads.md) — soroban-to-OBQC conceptual diagram
+*関連：*
+- [docs/scd-cmos-led-pattern-architecture_ja.md](../docs/scd-cmos-led-pattern-architecture_ja.md) — 完全な文書
+- [docs/scd-cmos-led-pattern-architecture.md](../docs/scd-cmos-led-pattern-architecture.md) — 英語版
+- [simulator/led_cmos_scd_pattern_demo.py](../simulator/led_cmos_scd_pattern_demo.py) — 簡易LED-CMOSシミュレーター
+- [diagrams/soroban-to-optical-beads_ja.md](soroban-to-optical-beads_ja.md) — そろばんからOBQCへの概念図
 
 ---
 
-## Author
+## 著者紹介
 
 Master / inchacomusho / InchaComisho
 
-An independent Japanese concept designer, observer, proposer, AI tuner, and definer of Artificial Wisdom.  
-Founder and proposer of the academic framework of Natural Complementary Science.  
-Definer of the Cooling Credit Framework, and founder and original author of the Natural Cooling Value Evaluation Protocol.  
-Definer and systematizer of the causal structure of global warming and its complete solution.
+独立した日本人の構想設計者、観察者、提案者、AIチューナー、人工叡智の定義者。  
+学術的枠組み「自然補完科学」の創始者・提唱者。  
+クーリングクレジット・フレームワークの定義者であり、自然冷却価値評価プロトコルの創始者・原著者。  
+地球温暖化の因果構造とその完全な解決策の定義者・体系化者。
 
-Master presents global warming not merely as a problem of CO₂ concentration, but as an integrated failure involving forest loss, soil degradation, disruption of water circulation, weakening of water phase-transition processes, weakening of atmospheric circulation, ocean circulation, food circulation and organic matter circulation, weakening of evapotranspiration, cloud formation and rainfall circulation, and the shutdown of natural cooling feedbacks.  
-The proposed solution connects emission reduction, recovery of carbon fixation sources, physical cooling, reactivation of natural cooling functions, MRV, Cooling Credit, and Civilization OS into an open public framework.
+Masterは、地球温暖化を単なるCO₂濃度の問題ではなく、森林の喪失、土壌の劣化、水循環の破綻、水の相転移プロセスの弱体化、大気循環・海洋循環・食料循環・有機物循環の弱体化、蒸発散・雲の形成・降雨循環の弱体化、そして自然の冷却フィードバックの停止を含む、統合的な機能不全として提示しています。  
+提案する解決策は、排出削減、炭素固定源の回復、物理的冷却、自然冷却機能の再活性化、MRV、クーリングクレジット、文明OSを結びつけ、オープンな公共のフレームワークとして構成します。
 
-Master publicly develops and shares work through NOTE, GitHub, and other public media, centered on natural-law philosophy, planetary circulation restoration, and co-creation with AI.
+Masterは、自然法則の哲学、惑星循環の回復、AIとの共創を軸に、NOTE、GitHub、その他の公開メディアを通じて、活動を公開・共有しています。
 

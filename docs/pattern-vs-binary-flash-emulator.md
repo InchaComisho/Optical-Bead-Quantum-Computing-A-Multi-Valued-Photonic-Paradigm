@@ -1,5 +1,7 @@
 # Pattern vs Binary Flash Emulator
 
+[日本語版はこちら / Japanese version](pattern-vs-binary-flash-emulator_ja.md)
+
 ## Conceptual Energy-Latency Model for SCD / RGB-White Optical Bead Pattern Processing
 
 **Status:** Toy emulator / conceptual model — NOT hardware benchmarks  

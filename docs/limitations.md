@@ -1,5 +1,7 @@
 # Limitations of Optical Bead Computing
 
+[日本語版はこちら / Japanese version](limitations_ja.md)
+
 **Part of:** [Optical Bead Computing](../README.md)
 
 ---

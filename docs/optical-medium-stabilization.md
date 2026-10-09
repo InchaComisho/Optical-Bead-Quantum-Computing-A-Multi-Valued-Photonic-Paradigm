@@ -1,5 +1,7 @@
 # Optical Medium Stabilization for Optical Bead Computing
 
+[日本語版はこちら / Japanese version](optical-medium-stabilization_ja.md)
+
 **Part of:** [Optical Bead Computing](../README.md)
 
 ---

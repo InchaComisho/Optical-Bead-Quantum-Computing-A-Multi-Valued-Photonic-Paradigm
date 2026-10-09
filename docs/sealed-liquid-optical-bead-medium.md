@@ -1,5 +1,7 @@
 # Sealed Liquid Optical Bead Medium
 
+[日本語版はこちら / Japanese version](sealed-liquid-optical-bead-medium_ja.md)
+
 **Part of:** [Optical Bead Computing](../README.md)
 
 ---

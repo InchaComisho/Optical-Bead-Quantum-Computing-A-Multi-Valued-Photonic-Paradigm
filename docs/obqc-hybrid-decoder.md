@@ -1,5 +1,7 @@
 # OBQC Hybrid Decoder Simulation
 
+[日本語版はこちら / Japanese version](obqc-hybrid-decoder_ja.md)
+
 ## RGBW × Soroban-Coded Decimal 40-State Decoder
 
 This document describes the Phase 2 software simulation for a near-term deterministic OBQC / SCD hybrid decoder.

@@ -1,5 +1,7 @@
 # Hybrid Quantum Support Layer: Pattern Recognition for Reduced Auxiliary Load
 
+[日本語版はこちら / Japanese version](hybrid-quantum-support-layer_ja.md)
+
 **Part of:** [Optical Bead Computing](../README.md)
 
 ---

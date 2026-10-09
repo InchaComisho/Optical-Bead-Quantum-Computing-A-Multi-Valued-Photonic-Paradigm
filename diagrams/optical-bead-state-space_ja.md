@@ -1,16 +1,16 @@
-# Diagram: Optical Bead State Space
+# 図：光学ビードの状態空間
 
-[日本語版はこちら / Japanese version](optical-bead-state-space_ja.md)
+[English Version](optical-bead-state-space.md)
 
-**Part of:** [Optical Bead Computing](../README.md)
+**所属：**[光学ビードコンピューティング](../README_ja.md)
 
-This document contains diagrams illustrating the structure of the optical bead state space and how states are distributed within it.
+この文書は、光学ビードの状態空間の構造と、その中で状態がどう分布するかを示す図を収めています。（図中のラベルは英語のままです。）
 
 ---
 
-## 1. Two-Dimensional State Space (λ × P)
+## 1. 二次元の状態空間（λ × P）
 
-The simplest non-trivial alphabet uses two degrees of freedom: wavelength (λ) and polarization (P).
+最も単純で自明でない符号アルファベットは、波長（λ）と偏光（P）という二つの自由度を用います。
 
 ```
 Polarization P
@@ -32,9 +32,9 @@ Diagonal distance = 0.33 × sqrt(2) ≈ 0.47
 
 ---
 
-## 2. Three-Dimensional State Space (λ × P × τ)
+## 2. 三次元の状態空間（λ × P × τ）
 
-Adding a third degree of freedom (time-bin τ) creates a 3D grid:
+三つ目の自由度（時間ビンτ）を加えると、三次元の格子ができます。
 
 ```mermaid
 graph TB
@@ -61,13 +61,13 @@ graph TB
     Tau1 -->|"time-bin step +0.5"| Tau2
 ```
 
-Full 3D alphabet (4λ × 4P × 3τ): 48 states arranged in a 3D grid.
+完全な三次元アルファベット（4λ × 4P × 3τ）：三次元格子に配置された48状態。
 
 ---
 
-## 3. Noise and State Confusion
+## 3. ノイズと状態の混同
 
-States that are close in the state space are most likely to be confused under noise.
+状態空間で互いに近い状態は、ノイズのもとで最も混同されやすくなります。
 
 ```
 Example: State B(1,1,1) = (0.33, 0.33, 0.50)
@@ -88,7 +88,7 @@ Noise σ = 0.12: Gaussian at 1σ reaches 0.12 units
 
 ---
 
-## 4. Effect of Alphabet Size on Separability
+## 4. アルファベットの大きさが分離性に与える影響
 
 ```
 2×2×2 = 8 states  → min distance = 1.00 / (n-1) = 1.00   → very robust
@@ -99,15 +99,15 @@ Noise σ = 0.12: Gaussian at 1σ reaches 0.12 units
 8×8×8 = 512 states → min distance = 1.00 / 7     = 0.14  → very difficult
 ```
 
-This illustrates the fundamental tradeoff: **more states = smaller inter-state distance = more noise-sensitive**.
+これは、根本的なトレードオフを示しています。**状態が多いほど、状態間の距離は小さくなり、ノイズに敏感になります。**
 
-The practical alphabet size is bounded by the noise floor, not by the theoretical maximum.
+実用的なアルファベットの大きさは、理論上の最大値ではなく、ノイズフロアによって制限されます。
 
 ---
 
-## 5. Voronoi Regions (2D illustration)
+## 5. ボロノイ領域（二次元での図解）
 
-Each state "owns" a Voronoi region in the state space — the set of received states that would be decoded to that state by nearest-neighbor decoding.
+それぞれの状態は、状態空間の中に自分のボロノイ領域を持ちます。これは、最近傍復号によってその状態に復号される、受信状態の集合です。
 
 ```
 Polarization P
@@ -128,27 +128,29 @@ States near cell boundaries have the highest confusion probability.
 
 ---
 
-*Back to [README.md](../README.md)*
+*[README_ja.md](../README_ja.md)に戻る*
 
 ---
 
-## Author
+## 著者紹介
 
 Master / inchacomusho / InchaComisho
 
-An independent Japanese concept designer, observer, proposer, AI tuner, and definer of Artificial Wisdom.  
-Founder and proposer of the academic framework of Natural Complementary Science.  
-Definer of the Cooling Credit Framework, and founder and original author of the Natural Cooling Value Evaluation Protocol.  
-Definer and systematizer of the causal structure of global warming and its complete solution.
+独立した日本人の構想設計者、観察者、提案者、AIチューナー、人工叡智の定義者。  
+学術的枠組み「自然補完科学」の創始者・提唱者。  
+クーリングクレジット・フレームワークの定義者であり、自然冷却価値評価プロトコルの創始者・原著者。  
+地球温暖化の因果構造とその完全な解決策の定義者・体系化者。
 
-Master presents global warming not merely as a problem of CO₂ concentration, but as an integrated failure involving forest loss, soil degradation, disruption of water circulation, weakening of water phase-transition processes, weakening of atmospheric circulation, ocean circulation, food circulation and organic matter circulation, weakening of evapotranspiration, cloud formation and rainfall circulation, and the shutdown of natural cooling feedbacks.  
-The proposed solution connects emission reduction, recovery of carbon fixation sources, physical cooling, reactivation of natural cooling functions, MRV, Cooling Credit, and Civilization OS into an open public framework.
+Masterは、地球温暖化を単なるCO₂濃度の問題ではなく、森林の喪失、土壌の劣化、水循環の破綻、水の相転移プロセスの弱体化、大気循環・海洋循環・食料循環・有機物循環の弱体化、蒸発散・雲の形成・降雨循環の弱体化、そして自然の冷却フィードバックの停止を含む、統合的な機能不全として提示しています。  
+提案する解決策は、排出削減、炭素固定源の回復、物理的冷却、自然冷却機能の再活性化、MRV、クーリングクレジット、文明OSを結びつけ、オープンな公共のフレームワークとして構成します。
 
-Master publicly develops and shares work through NOTE, GitHub, and other public media, centered on natural-law philosophy, planetary circulation restoration, and co-creation with AI.
+Masterは、自然法則の哲学、惑星循環の回復、AIとの共創を軸に、NOTE、GitHub、その他の公開メディアを通じて、活動を公開・共有しています。
 
-## License
+
+## ライセンス
 
 CC BY 4.0
 
-This article is released under the Creative Commons Attribution 4.0 International License (CC BY 4.0).  
-Sharing, redistribution, translation, adaptation, and reuse are permitted as long as proper attribution is given.
+この記事は、クリエイティブ・コモンズ 表示 4.0 国際ライセンス（CC BY 4.0）の下で公開されています。  
+適切なクレジット表示を行う限り、共有、再配布、翻訳、改変、再利用が認められます。
+

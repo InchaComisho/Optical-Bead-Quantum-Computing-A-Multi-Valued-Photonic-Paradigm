@@ -1,5 +1,7 @@
 # Optical Bead State Model
 
+[日本語版はこちら / Japanese version](optical-bead-state-model_ja.md)
+
 **Part of:** [Optical Bead Computing](../README.md)
 
 ---

@@ -1,5 +1,7 @@
 # Conceptual Origin: From Soroban to Optical Beads
 
+[日本語版はこちら / Japanese version](soroban-origin_ja.md)
+
 **Part of:** [Optical Bead Computing](../README.md)
 
 ---

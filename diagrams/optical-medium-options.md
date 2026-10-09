@@ -1,5 +1,7 @@
 # Diagram: Optical Medium Options for OBQC
 
+[日本語版はこちら / Japanese version](optical-medium-options_ja.md)
+
 **Part of:** [Optical Bead Computing](../README.md)
 
 This document illustrates the four principal optical medium configurations for OBQC prototypes: open-air free-space, sealed liquid cell, solid transparent block, and fiber/waveguide.

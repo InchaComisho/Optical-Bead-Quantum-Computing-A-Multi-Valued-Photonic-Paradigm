@@ -1,5 +1,7 @@
 # Deterministic OBQC vs Quantum OBQC
 
+[日本語版はこちら / Japanese version](deterministic-vs-quantum_ja.md)
+
 **Part of:** [Optical Bead Computing](../README.md)
 
 ---

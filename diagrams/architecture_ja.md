@@ -1,14 +1,14 @@
-# Diagram: Optical Bead Computing System Architecture
+# 図：光学ビードコンピューティングのシステム・アーキテクチャ
 
-[日本語版はこちら / Japanese version](architecture_ja.md)
+[English Version](architecture.md)
 
-**Part of:** [Optical Bead Computing](../README.md)
+**所属：**[光学ビードコンピューティング](../README_ja.md)
 
-This document contains system architecture diagrams for the Optical Bead Computing framework at different levels of abstraction.
+この文書は、光学ビードコンピューティングのフレームワークについて、異なる抽象度でのシステム・アーキテクチャ図を収めています。（図中のラベルは英語のままです。）
 
 ---
 
-## 1. Top-Level System Architecture
+## 1. 最上位のシステム・アーキテクチャ
 
 ```mermaid
 graph LR
@@ -32,7 +32,7 @@ graph LR
 
 ---
 
-## 2. Encoder Detail
+## 2. エンコーダの詳細
 
 ```mermaid
 graph TB
@@ -52,7 +52,7 @@ graph TB
 
 ---
 
-## 3. Decoder Detail
+## 3. デコーダの詳細
 
 ```mermaid
 graph TB
@@ -70,7 +70,7 @@ graph TB
 
 ---
 
-## 4. Phase 1 Hardware Architecture (Classical Prototype)
+## 4. 第1段階のハードウェア・アーキテクチャ（古典的なプロトタイプ）
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -97,7 +97,7 @@ Target alphabet: 6–24 states
 
 ---
 
-## 5. Software Simulation Architecture (Phase 0)
+## 5. ソフトウェア・シミュレーションのアーキテクチャ（第0段階）
 
 ```mermaid
 graph TB
@@ -119,7 +119,7 @@ graph TB
 
 ---
 
-## 6. Three-Layer Architecture Overview
+## 6. 三層アーキテクチャの概観
 
 ```mermaid
 graph TB
@@ -149,27 +149,29 @@ graph TB
 
 ---
 
-*Back to [README.md](../README.md)*
+*[README_ja.md](../README_ja.md)に戻る*
 
 ---
 
-## Author
+## 著者紹介
 
 Master / inchacomusho / InchaComisho
 
-An independent Japanese concept designer, observer, proposer, AI tuner, and definer of Artificial Wisdom.  
-Founder and proposer of the academic framework of Natural Complementary Science.  
-Definer of the Cooling Credit Framework, and founder and original author of the Natural Cooling Value Evaluation Protocol.  
-Definer and systematizer of the causal structure of global warming and its complete solution.
+独立した日本人の構想設計者、観察者、提案者、AIチューナー、人工叡智の定義者。  
+学術的枠組み「自然補完科学」の創始者・提唱者。  
+クーリングクレジット・フレームワークの定義者であり、自然冷却価値評価プロトコルの創始者・原著者。  
+地球温暖化の因果構造とその完全な解決策の定義者・体系化者。
 
-Master presents global warming not merely as a problem of CO₂ concentration, but as an integrated failure involving forest loss, soil degradation, disruption of water circulation, weakening of water phase-transition processes, weakening of atmospheric circulation, ocean circulation, food circulation and organic matter circulation, weakening of evapotranspiration, cloud formation and rainfall circulation, and the shutdown of natural cooling feedbacks.  
-The proposed solution connects emission reduction, recovery of carbon fixation sources, physical cooling, reactivation of natural cooling functions, MRV, Cooling Credit, and Civilization OS into an open public framework.
+Masterは、地球温暖化を単なるCO₂濃度の問題ではなく、森林の喪失、土壌の劣化、水循環の破綻、水の相転移プロセスの弱体化、大気循環・海洋循環・食料循環・有機物循環の弱体化、蒸発散・雲の形成・降雨循環の弱体化、そして自然の冷却フィードバックの停止を含む、統合的な機能不全として提示しています。  
+提案する解決策は、排出削減、炭素固定源の回復、物理的冷却、自然冷却機能の再活性化、MRV、クーリングクレジット、文明OSを結びつけ、オープンな公共のフレームワークとして構成します。
 
-Master publicly develops and shares work through NOTE, GitHub, and other public media, centered on natural-law philosophy, planetary circulation restoration, and co-creation with AI.
+Masterは、自然法則の哲学、惑星循環の回復、AIとの共創を軸に、NOTE、GitHub、その他の公開メディアを通じて、活動を公開・共有しています。
 
-## License
+
+## ライセンス
 
 CC BY 4.0
 
-This article is released under the Creative Commons Attribution 4.0 International License (CC BY 4.0).  
-Sharing, redistribution, translation, adaptation, and reuse are permitted as long as proper attribution is given.
+この記事は、クリエイティブ・コモンズ 表示 4.0 国際ライセンス（CC BY 4.0）の下で公開されています。  
+適切なクレジット表示を行う限り、共有、再配布、翻訳、改変、再利用が認められます。
+

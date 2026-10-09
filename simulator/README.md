@@ -1,5 +1,7 @@
 # Optical Bead Computing — Simulator
 
+[日本語版はこちら / Japanese version](README_ja.md)
+
 This directory contains a minimal Python simulator for the Optical Bead Computing (OBC) framework.
 
 **No mandatory external dependencies.** The core scripts run on Python 3.7+ standard library only. `numpy` and `matplotlib` are used for enhanced output if available but are not required.

@@ -1,5 +1,7 @@
 # Electronic Extension: Soroban-Coded Decimal Logic
 
+[日本語版はこちら / Japanese version](electronic-extension-soroban-decimal_ja.md)
+
 **Part of:** [Optical Bead Computing](../README.md)
 
 ---

@@ -1,5 +1,7 @@
 # SCD and RGB Optical Bead Encoding
 
+[日本語版はこちら / Japanese version](scd-rgb-optical-bead-encoding_ja.md)
+
 ## A cautious framework for soroban-inspired multivalued pattern computing
 
 > **Status:** Conceptual framework / simulation target  
