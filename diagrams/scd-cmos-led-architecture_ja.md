@@ -166,7 +166,7 @@ flowchart LR
 
 *関連：*
 - [docs/scd-cmos-led-pattern-architecture_ja.md](../docs/scd-cmos-led-pattern-architecture_ja.md) — 完全な文書
-- [docs/scd-cmos-led-pattern-architecture.md](../docs/scd-cmos-led-pattern-architecture.md) — 英語版
+- [docs/scd-cmos-led-pattern-architecture.md](../docs/scd-cmos-led-pattern-architecture_ja.md) — 英語版
 - [simulator/led_cmos_scd_pattern_demo.py](../simulator/led_cmos_scd_pattern_demo.py) — 簡易LED-CMOSシミュレーター
 - [diagrams/soroban-to-optical-beads_ja.md](soroban-to-optical-beads_ja.md) — そろばんからOBQCへの概念図
 

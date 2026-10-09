@@ -299,8 +299,8 @@ SCD-CMOSは構造的な10進パターンレイヤーです。LED-CMOSはその�
 *関連ドキュメント：*
 - [docs/electronic-extension-soroban-decimal.md](electronic-extension-soroban-decimal_ja.md) — 元のSCD定義
 - [simulator/led_cmos_scd_pattern_demo.py](../simulator/led_cmos_scd_pattern_demo.py) — トイLED-CMOS読み取りシミュレータ
-- [diagrams/scd-cmos-led-architecture.md](../diagrams/scd-cmos-led-architecture.md) — アーキテクチャ図
-- [README.md](../README.md) — リポジトリ概要
+- [diagrams/scd-cmos-led-architecture.md](../diagrams/scd-cmos-led-architecture_ja.md) — アーキテクチャ図
+- [README.md](../README_ja.md) — リポジトリ概要
 - [docs/scd-cmos-led-pattern-architecture.md](scd-cmos-led-pattern-architecture_ja.md) — 英語版
 
 ---
